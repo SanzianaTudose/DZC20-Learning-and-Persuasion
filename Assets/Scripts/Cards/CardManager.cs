@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour {
     [SerializeField]
     private List<Card> cardDeck;
 
+    private List<GameObject> cardObjects;
     // Holds a list of cards for each Expertise Area 
     private Dictionary<Card.ExpertiseAreas, List<Card>> organizedCards;
-    private List<GameObject> cardObjects;
+    // Keeps track of which card to draw next from each Expertise Area
+    private Dictionary<Card.ExpertiseAreas, int> nextCard;
 
     private void Awake() {
         SetPrivateVars();
@@ -19,19 +20,25 @@ public class CardManager : MonoBehaviour {
     private void Update() {
         // TODO: remove this, it's just for debugging
         if (Input.GetKeyDown("space")) {
-            Scene scene = SceneManager.GetActiveScene(); 
-            SceneManager.LoadScene(scene.name);
+            DistributeCards();
         }
     }
 
     private void SetPrivateVars() {
         organizedCards = new Dictionary<Card.ExpertiseAreas, List<Card>>();
+        nextCard = new Dictionary<Card.ExpertiseAreas, int>();
         foreach (Card card in cardDeck) {
-            if (!organizedCards.ContainsKey(card.expertiseArea))
+            if (!organizedCards.ContainsKey(card.expertiseArea)) {
                 organizedCards[card.expertiseArea] = new List<Card>();
+                nextCard[card.expertiseArea] = 0;
+            }
 
             organizedCards[card.expertiseArea].Add(card);
         }
+
+        // Shuffle each card deck 
+        foreach (Card.ExpertiseAreas expertise in organizedCards.Keys) 
+            ShuffleCardList(organizedCards[expertise]);
 
         cardObjects = new List<GameObject>();
         foreach (Transform child in transform)
@@ -46,8 +53,25 @@ public class CardManager : MonoBehaviour {
             if (cardDisplay == null)
                 Debug.LogError("CardManager.cs: no CardDisplay component found on child of CardsContainer.");
 
-            Card curCard = organizedCards[expertise][Random.Range(0, organizedCards[expertise].Count)];
+            if (nextCard[expertise] >= organizedCards[expertise].Count) {
+                Debug.LogWarning("CardManager.cs: no more cards of Expertise Area: " + expertise.ToString());
+                continue;
+            }
+
+            Card curCard = organizedCards[expertise][nextCard[expertise]++];
             cardDisplay.SetCard(curCard);
         }
     }
+
+    #region Helper methods
+    private void ShuffleCardList(List<Card> arg) {
+        for (int i = arg.Count - 1; i > 0; i--) {
+            int randIndex = Random.Range(0, i + 1);
+            
+            var temp = arg[i];
+            arg[i] = arg[randIndex];
+            arg[randIndex] = temp;
+        }
+    }
+    #endregion
 }

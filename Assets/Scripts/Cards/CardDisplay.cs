@@ -12,12 +12,13 @@ public class CardDisplay : MonoBehaviour {
     [SerializeField]
     private TextMeshProUGUI expertiseText;
 
-    void Start() {
-        wordText.text = card.word;
-        expertiseText.text = card.expertiseArea.ToString();
-    }
-
     public void SetCard(Card newCard) {
         card = newCard;
+        UpdateUI();
+    }
+
+    private void UpdateUI() {
+        wordText.text = card.word;
+        expertiseText.text = card.expertiseArea.ToString();
     }
 }
