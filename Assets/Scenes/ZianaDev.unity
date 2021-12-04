@@ -451,12 +451,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e3abf92e602504e8e277d858e946bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards:
-  - {fileID: 11400000, guid: 0ae0c25feeee69847bef94f0eeb4ba00, type: 2}
-  - {fileID: 11400000, guid: 2f86c91b8bd975f4f903d98fc798b19c, type: 2}
-  - {fileID: 11400000, guid: acbd05dfd1b0a1548b9ab1df37470bc4, type: 2}
+  cardDeck:
   - {fileID: 11400000, guid: f294f6e502c2c2946a0e5dad8707c8ef, type: 2}
+  - {fileID: 11400000, guid: c7593275d3a276c459d44c5232afd3c0, type: 2}
+  - {fileID: 11400000, guid: acbd05dfd1b0a1548b9ab1df37470bc4, type: 2}
+  - {fileID: 11400000, guid: d7da9034c64671041a091907a66f76c8, type: 2}
+  - {fileID: 11400000, guid: 35f47cf9c858da64eb1992cdb48f75f2, type: 2}
+  - {fileID: 11400000, guid: 0ae0c25feeee69847bef94f0eeb4ba00, type: 2}
+  - {fileID: 11400000, guid: 967161ede18f8284a9755f4af099ca52, type: 2}
   - {fileID: 11400000, guid: 39edf000c03ca844b856ff3be71c4464, type: 2}
+  - {fileID: 11400000, guid: 2f86c91b8bd975f4f903d98fc798b19c, type: 2}
+  - {fileID: 11400000, guid: 815624867c074dc41bdac564ec7cce4b, type: 2}
 --- !u!1 &1419365774
 GameObject:
   m_ObjectHideFlags: 0
