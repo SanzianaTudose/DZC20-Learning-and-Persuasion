@@ -17,11 +17,9 @@ public class CardManager : MonoBehaviour {
         DistributeCards();
     }
 
-    private void Update() {
-        // TODO: remove this, it's just for debugging
-        if (Input.GetKeyDown("space")) {
-            DistributeCards();
-        }
+    // Called by the Submit button on AnswerBox
+    public void OnClickSubmit() {
+        DistributeCards();
     }
 
     private void SetPrivateVars() {
