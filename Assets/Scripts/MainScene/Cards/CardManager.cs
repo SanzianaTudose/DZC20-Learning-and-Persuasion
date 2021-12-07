@@ -5,6 +5,8 @@ using UnityEngine;
 public class CardManager : MonoBehaviour {
     [SerializeField]
     private List<Card> cardDeck;
+    [SerializeField]
+    private CardUsageManager cardUsageManager;
 
     private List<GameObject> cardObjects;
     // Holds a list of cards for each Expertise Area 
@@ -19,12 +21,16 @@ public class CardManager : MonoBehaviour {
 
     // Called by the Submit button on AnswerBox
     public void OnClickSubmit() {
+        if (!cardUsageManager.CanSubmit())
+            return;
+
         DistributeCards();
     }
 
     public List<GameObject> GetCardObjects() {
         return cardObjects;
     }
+
     private void SetPrivateVars() {
         organizedCards = new Dictionary<Card.ExpertiseAreas, List<Card>>();
         nextCard = new Dictionary<Card.ExpertiseAreas, int>();

@@ -6,17 +6,22 @@ using TMPro;
 
 public class AnswerManager : MonoBehaviour {
     [SerializeField]
+    private CardUsageManager cardUsageManager;
+
+    [SerializeField]
     private TMP_InputField inputField;
     private List<string> answers = new List<string>();
 
     // Called by the Submit button on AnswerBox
     public void OnClickSubmit() {
+        if (!cardUsageManager.CanSubmit()) {
+            print("you dont have enough cards to submit.");
+            return;
+        }
+
         string answerText = GetAnswerText();
         answers.Add(answerText);
         SetAnswerText("");
-
-        foreach (string answer in answers)
-            print(answer);
     }
 
     public string GetAnswerText() {

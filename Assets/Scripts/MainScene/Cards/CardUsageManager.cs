@@ -3,25 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Manages card hihglight based on words in the answer text
-public class CardHighlightController : MonoBehaviour {
+// Manages card highlight based on words in the answer text
+public class CardUsageManager : MonoBehaviour {
 
     [SerializeField]
     private AnswerManager answerManager;
+    [Header("Gameplay values")]
+    [SerializeField]
+    private int cardsNeeded = 3;
+
     // Holds pair of <cardWord, cardObject> for easy access
     private Dictionary<string, GameObject> cardDict;
+    private int cardsUsed = 0;
 
-    void Start() {
+    public bool CanSubmit() {
+        return (cardsUsed >= cardsNeeded);
+    }
+
+    private void Start() {
         SetPrivateVars();
     }
 
-    void Update() {
+    private void Update() {
+        // Highlight cards and compute new cardsUsed
+        int newCardsUsed = 0;
         foreach (string word in cardDict.Keys) {
-            if (answerManager.GetAnswerText().Contains(word))
+            if (answerManager.GetAnswerText().Contains(word)) {
+                newCardsUsed++;
                 ToggleCardHighlight(cardDict[word], true);
-            else
+            } else
                 ToggleCardHighlight(cardDict[word], false);
         }
+        cardsUsed = newCardsUsed;
     }
 
     private void SetPrivateVars() {
@@ -38,6 +51,7 @@ public class CardHighlightController : MonoBehaviour {
     }
 
     private void ToggleCardHighlight(GameObject cardObject, bool isHighlighted) {
+        // TODO: change this to a cooler highlight effect
         Color highlightColor = Color.white;
         if (isHighlighted)
             highlightColor = Color.yellow;

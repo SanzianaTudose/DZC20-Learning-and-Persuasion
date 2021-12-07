@@ -644,6 +644,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 39edf000c03ca844b856ff3be71c4464, type: 2}
   - {fileID: 11400000, guid: 2f86c91b8bd975f4f903d98fc798b19c, type: 2}
   - {fileID: 11400000, guid: 815624867c074dc41bdac564ec7cce4b, type: 2}
+  cardUsageManager: {fileID: 895952188}
 --- !u!114 &895952188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,6 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answerManager: {fileID: 1848472320}
+  cardsNeeded: 3
 --- !u!1 &925089349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1aa8893bc64ec4ca6dff4c7cbdc1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardUsageManager: {fileID: 895952188}
   inputField: {fileID: 2041825028}
 --- !u!1001 &1982736322
 PrefabInstance:
