@@ -17,6 +17,10 @@ public class CardDisplay : MonoBehaviour {
         UpdateUI();
     }
 
+    public string GetCardWord() {
+        return wordText.text.ToString();
+    }
+
     private void UpdateUI() {
         wordText.text = card.word;
         expertiseText.text = card.expertiseArea.ToString();

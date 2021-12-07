@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class AnswerManager : MonoBehaviour {
     [SerializeField]
-    private GameObject inputField;
+    private TMP_InputField inputField;
     private List<string> answers = new List<string>();
 
     // Called by the Submit button on AnswerBox
     public void OnClickSubmit() {
-        TMP_InputField tmpInputField = inputField.GetComponent<TMP_InputField>();
-        if (tmpInputField == null)
-            Debug.LogError("AnswerManager.cs: TMP_InputField not found on inputField GameObject.");
-
-        // Save answer and reset InputField text
-        string answerText = tmpInputField.text;
+        string answerText = GetAnswerText();
         answers.Add(answerText);
-        tmpInputField.text = "";
+        SetAnswerText("");
 
         foreach (string answer in answers)
             print(answer);
+    }
+
+    public string GetAnswerText() {
+        return inputField.text.ToString();
+    }
+
+    private void SetAnswerText(string newText) {
+        inputField.text = "";
     }
 }

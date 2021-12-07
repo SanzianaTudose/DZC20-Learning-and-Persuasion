@@ -511,8 +511,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4279834905
+  m_fontColor: {r: 0.09803922, g: 0.09803922, b: 0.09803922, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -594,6 +594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 895952186}
   - component: {fileID: 895952187}
+  - component: {fileID: 895952188}
   m_Layer: 5
   m_Name: CardsContainer
   m_TagString: Untagged
@@ -643,6 +644,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 39edf000c03ca844b856ff3be71c4464, type: 2}
   - {fileID: 11400000, guid: 2f86c91b8bd975f4f903d98fc798b19c, type: 2}
   - {fileID: 11400000, guid: 815624867c074dc41bdac564ec7cce4b, type: 2}
+--- !u!114 &895952188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895952185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f14c7b1ca0dc044f89ae8a51dc93d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answerManager: {fileID: 1848472320}
 --- !u!1 &925089349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,7 +1288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1aa8893bc64ec4ca6dff4c7cbdc1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 2041825026}
+  inputField: {fileID: 2041825028}
 --- !u!1001 &1982736322
 PrefabInstance:
   m_ObjectHideFlags: 0

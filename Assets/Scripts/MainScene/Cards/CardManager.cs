@@ -22,6 +22,9 @@ public class CardManager : MonoBehaviour {
         DistributeCards();
     }
 
+    public List<GameObject> GetCardObjects() {
+        return cardObjects;
+    }
     private void SetPrivateVars() {
         organizedCards = new Dictionary<Card.ExpertiseAreas, List<Card>>();
         nextCard = new Dictionary<Card.ExpertiseAreas, int>();
