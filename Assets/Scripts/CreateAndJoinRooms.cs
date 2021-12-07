@@ -22,7 +22,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("SampleScene");
+        PhotonNetwork.LoadLevel("SelectSquad");
         Debug.Log("Successfully joined room: " + joinInput.text);
     }
 
