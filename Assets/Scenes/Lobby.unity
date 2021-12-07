@@ -160,6 +160,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 25}
   m_SizeDelta: {x: 339.1549, y: 32.3503}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &293711592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 293711594}
+  - component: {fileID: 293711593}
+  m_Layer: 0
+  m_Name: CreateAndJoinRooms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &293711593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293711592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2429207d8d3c74193d95cffc3d3378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createInput: {fileID: 451824464}
+  joinInput: {fileID: 1368821817}
+--- !u!4 &293711594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293711592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 294.57007, y: 156.70332, z: -32.375977}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &451824462
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +218,7 @@ GameObject:
   - component: {fileID: 451824465}
   - component: {fileID: 451824464}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: Create (Input Field)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1002,7 +1047,7 @@ GameObject:
   - component: {fileID: 1368821818}
   - component: {fileID: 1368821817}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: Join (Input Field)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1799,7 +1844,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2078910101}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 293711593}
+        m_TargetAssemblyTypeName: CreateAndJoinRooms, Assembly-CSharp
+        m_MethodName: JoinRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2078910101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1920,7 +1977,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2095572334}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 293711593}
+        m_TargetAssemblyTypeName: CreateAndJoinRooms, Assembly-CSharp
+        m_MethodName: CreateRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2095572334
 MonoBehaviour:
   m_ObjectHideFlags: 0
