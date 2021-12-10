@@ -887,6 +887,7 @@ MonoBehaviour:
   playerItemLists: []
   playerItemPrefab: {fileID: 501896498128477223, guid: bb2525e0e7f57a245928c76d36fb60a3, type: 3}
   playerItemParent: {fileID: 951016543}
+  playButton: {fileID: 2028521315}
 --- !u!1 &1528567123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,8 +1531,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1512420921}
-        m_TargetAssemblyTypeName: DisplayRoomData, Assembly-CSharp
-        m_MethodName: OnClickLeaveRoom
+        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
+        m_MethodName: OnClickPlayButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -9,6 +9,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public GameObject loadingPrompt; 
     public void Connect() {
         loadingPrompt.SetActive(true);
+        PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
     }
 

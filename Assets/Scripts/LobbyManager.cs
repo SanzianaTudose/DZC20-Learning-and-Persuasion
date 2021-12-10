@@ -14,6 +14,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public PlayerLobbyItem playerItemPrefab;
     public Transform playerItemParent;
 
+    public GameObject playButton;
+
     void Start()
     {
         PhotonNetwork.JoinLobby();
@@ -79,4 +81,20 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         UpdatePlayerList();
     }
 
+    private void Update()
+    {
+        // Game can only be started by the master client and if there are at least 2 people
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2)
+        {
+            playButton.SetActive(true);
+        } else
+        {
+            playButton.SetActive(false);
+        }
+    }
+
+    public void OnClickPlayButton()
+    {
+        PhotonNetwork.LoadLevel("SelectSquad");
+    }
 }
