@@ -7,23 +7,60 @@ using TMPro;
 
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
+    public TMP_InputField usernameInput;
     public TMP_InputField createInput;
     public TMP_InputField joinInput;
 
+    private void Start()
+    {
+        if (PhotonNetwork.NickName != null)
+        {
+            usernameInput.text = PhotonNetwork.NickName;
+        }
+    }
+
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(createInput.text);
+        if (_IsValidUserAndRoomName(createInput.text))
+        {
+            PhotonNetwork.NickName = usernameInput.text;
+            PhotonNetwork.CreateRoom(createInput.text);
+        }
     }
 
     public void JoinRoom()
     {
-        PhotonNetwork.JoinRoom(joinInput.text);
+        if (_IsValidUserAndRoomName(joinInput.text))
+        {
+            PhotonNetwork.NickName = usernameInput.text;
+            PhotonNetwork.JoinRoom(joinInput.text);
+        }
+    }
+
+    private bool _IsValidUserAndRoomName(string text)
+    {
+        if (usernameInput.text.Length >= 1)
+        {
+            if (text.Length >= 1)
+            {   
+                PhotonNetwork.NickName = usernameInput.text;
+                return true;
+            } else
+            {
+                Debug.Log("Invalid room name!");
+                return false;
+            }
+        } else
+        {
+            Debug.Log("Invalid username!");
+            return false;
+        }
     }
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("SelectSquad");
-        Debug.Log("Successfully joined room: " + joinInput.text);
+        PhotonNetwork.LoadLevel("InsideLobby");
+        Debug.Log("Successfully joined room: " + PhotonNetwork.CurrentRoom.Name);
     }
 
     // Called if room that you want to create already exists

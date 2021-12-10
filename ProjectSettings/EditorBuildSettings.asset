@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: af8e83df740cc0d4496075628d7a6841
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
+    path: Assets/Scenes/CreateAndJoinLobby.unity
     guid: 6e99622957af51646b89fba091254e5b
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SelectSquad.unity
     guid: 41bbf2663ee202e4fb54b3988f47cdb6
+  - enabled: 1
+    path: Assets/Scenes/InsideLobby.unity
+    guid: bc170680e3bc2b946a31b62067b6a398
   m_configObjects: {}
