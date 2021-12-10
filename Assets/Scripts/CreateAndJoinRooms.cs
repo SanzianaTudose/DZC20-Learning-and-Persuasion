@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
 
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
@@ -24,7 +25,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         if (_IsValidUserAndRoomName(createInput.text))
         {
             PhotonNetwork.NickName = usernameInput.text;
-            PhotonNetwork.CreateRoom(createInput.text);
+            PhotonNetwork.CreateRoom(createInput.text, new RoomOptions() { MaxPlayers = 8, BroadcastPropsChangeToAll = true }); ;
         }
     }
 
