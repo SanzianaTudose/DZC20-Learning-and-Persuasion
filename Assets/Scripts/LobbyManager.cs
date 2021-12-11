@@ -57,10 +57,16 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         // Make sure player is in a room
         if (PhotonNetwork.CurrentRoom == null) return;
 
+        int i = 0;
         foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
         {
+            //player.Value.CustomProperties["cursorIndex"] = i;
+
             PlayerLobbyItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
             newPlayerItem.SetPlayerInfo(player.Value);
+
+            PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"] = i;
+            i++;
 
             if (player.Value == PhotonNetwork.LocalPlayer)
             {
@@ -84,7 +90,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     private void Update()
     {
         // Game can only be started by the master client and if there are at least 2 people
-        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2)
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 1)
         {
             playButton.SetActive(true);
         } else

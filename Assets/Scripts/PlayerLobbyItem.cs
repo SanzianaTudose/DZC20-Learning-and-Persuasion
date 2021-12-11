@@ -21,11 +21,6 @@ public class PlayerLobbyItem : MonoBehaviourPunCallbacks
 
     Player player;
 
-    private void Start()
-    {
-            
-    }
-
     public void SetPlayerInfo(Player _player)
     {
         playerName.text = _player.NickName;
