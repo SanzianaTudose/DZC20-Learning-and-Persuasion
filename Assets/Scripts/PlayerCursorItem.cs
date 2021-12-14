@@ -6,7 +6,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 
-public class PlayerCursorItem : MonoBehaviour
+public class PlayerCursorItem : MonoBehaviourPunCallbacks
 {
     public Image PlayerCursor;
     public Sprite[] cursors;
