@@ -20,10 +20,6 @@ public class CardUsageManager : MonoBehaviour {
         return (cardsUsed >= cardsNeeded);
     }
 
-    private void Start() {
-        SetPrivateVars();
-    }
-
     private void Update() {
         // Highlight cards and compute new cardsUsed
         int newCardsUsed = 0;
@@ -37,7 +33,8 @@ public class CardUsageManager : MonoBehaviour {
         cardsUsed = newCardsUsed;
     }
 
-    private void SetPrivateVars() {
+    // Called after distributing the cards
+    public void SetPrivateVars() {
         CardManager cardManager = GetComponent<CardManager>();
         if (cardManager == null)
             Debug.Log("CardHighlightController.cs: No CardManager component found.");

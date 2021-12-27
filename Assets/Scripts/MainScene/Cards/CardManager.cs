@@ -25,6 +25,7 @@ public class CardManager : MonoBehaviour {
         if (!cardUsageManager.CanSubmit())
             return;
 
+        // TODO: player shouldn't redraw cards and should instead wait for others to finish 
         DistributeCards();
     }
 
@@ -70,6 +71,8 @@ public class CardManager : MonoBehaviour {
             Card curCard = cardDeck[expertise][nextCard[expertise]++];
             cardDisplay.SetCard(curCard);
         }
+
+        cardUsageManager.SetPrivateVars();
     }
          
     #region Helper methods
