@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Cards")]
 public class Card : ScriptableObject {
-    public enum ExpertiseAreas
+    public enum ExpertiseAreas : byte
     {
         BusinessAndEntrepreneurship,
         CreativityAndAesthetics,

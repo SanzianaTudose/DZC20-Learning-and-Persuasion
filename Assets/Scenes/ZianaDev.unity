@@ -633,7 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e3abf92e602504e8e277d858e946bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardDeck:
+  allCards:
   - {fileID: 11400000, guid: f294f6e502c2c2946a0e5dad8707c8ef, type: 2}
   - {fileID: 11400000, guid: c7593275d3a276c459d44c5232afd3c0, type: 2}
   - {fileID: 11400000, guid: acbd05dfd1b0a1548b9ab1df37470bc4, type: 2}
