@@ -15,7 +15,9 @@ public class AnswerManager : MonoBehaviour {
 
     private int answerCount = 0;
 
+    // Photon variables
     private const byte ANSWER_SUBMIT_EVENT = 0;
+    private ExitGames.Client.Photon.Hashtable myCustomProperties = new ExitGames.Client.Photon.Hashtable();
 
     // Called by the Submit button on AnswerBox
     public void OnClickSubmit() {
@@ -26,14 +28,17 @@ public class AnswerManager : MonoBehaviour {
 
         string answerText = GetAnswerText();
 
+        // Add the submitted answer as a CustomProperty of the player
+        myCustomProperties["answer"] = answerText;
+        PhotonNetwork.LocalPlayer.SetCustomProperties(myCustomProperties);
+
         // Raise Event to notify MasterClient that an answer has been submitted
-        object[] data = new object[] { answerText };
         RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All }; // Set the Receivers to All to receive event on the local client
-        PhotonNetwork.RaiseEvent(ANSWER_SUBMIT_EVENT, data, raiseEventOptions, ExitGames.Client.Photon.SendOptions.SendReliable);
-        
+        PhotonNetwork.RaiseEvent(ANSWER_SUBMIT_EVENT, new object[] {}, raiseEventOptions, ExitGames.Client.Photon.SendOptions.SendReliable);
+
         SetAnswerText("");
 
-        // TODO: after first submit, cannot submit anymore or something? + don't redraw cards
+        // TODO: after first submit, cannot submit any more or something? + don't redraw cards
     }
 
     #region Photon Events-related methods
@@ -46,13 +51,18 @@ public class AnswerManager : MonoBehaviour {
     }
 
     private void NetworkingClient_EventReceived(ExitGames.Client.Photon.EventData obj) {
+        // Counts the number of answers submitted and transitions when all players have submitted
         if (obj.Code == ANSWER_SUBMIT_EVENT) {
             if (!PhotonNetwork.IsMasterClient) return;
-
-            object[] data = (object[]) obj.CustomData;
-            string answerText = (string) data[0];
-            answers.Add(answerText);
+            
             answerCount++;
+
+            // Debugging answers
+            string logMessage = "";
+            logMessage += answerCount + " answer(s). ";
+            foreach (var player in PhotonNetwork.PlayerList)
+                logMessage += player.CustomProperties["answer"] + "; ";
+            print(logMessage);
 
             // If every player submitted, transition to VotingScene
             if (answerCount == PhotonNetwork.PlayerList.Length)
