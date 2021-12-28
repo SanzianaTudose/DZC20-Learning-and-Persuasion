@@ -101,6 +101,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickPlayButton()
     {
-        PhotonNetwork.LoadLevel("ZianaDev"); //TODO: change this to MainScene
+        PhotonNetwork.LoadLevel("MainScene");
     }
 }

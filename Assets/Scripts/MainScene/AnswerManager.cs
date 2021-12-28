@@ -30,8 +30,10 @@ public class AnswerManager : MonoBehaviour {
         object[] data = new object[] { answerText };
         RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All }; // Set the Receivers to All to receive event on the local client
         PhotonNetwork.RaiseEvent(ANSWER_SUBMIT_EVENT, data, raiseEventOptions, ExitGames.Client.Photon.SendOptions.SendReliable);
-
+        
         SetAnswerText("");
+
+        // TODO: after first submit, cannot submit anymore or something? + don't redraw cards
     }
 
     #region Photon Events-related methods
@@ -52,12 +54,9 @@ public class AnswerManager : MonoBehaviour {
             answers.Add(answerText);
             answerCount++;
 
-            // Debugging answers
-            string logMessage = "";
-            logMessage += answerCount + " answer(s). ";
-            foreach (var answer in answers)
-                logMessage += answer + ";";
-            print(logMessage);
+            // If every player submitted, transition to VotingScene
+            if (answerCount == PhotonNetwork.PlayerList.Length)
+                PhotonNetwork.LoadLevel("VotingScene");
         } 
     }
     #endregion

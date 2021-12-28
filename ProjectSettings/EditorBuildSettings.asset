@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/InsideLobby.unity
     guid: bc170680e3bc2b946a31b62067b6a398
   - enabled: 1
-    path: Assets/Scenes/ZianaDev.unity
-    guid: b9d9bdb449cb3614c98c1b48952fdc32
+    path: Assets/Scenes/MainScene.unity
+    guid: 8085e0aa15218da499fe1867660b0d7c
+  - enabled: 1
+    path: Assets/Scenes/SelectSquad.unity
+    guid: 41bbf2663ee202e4fb54b3988f47cdb6
+  - enabled: 1
+    path: Assets/Scenes/VotingScene.unity
+    guid: bd12e26ef141a1c4eb63dcbe3ade3362
   m_configObjects: {}
