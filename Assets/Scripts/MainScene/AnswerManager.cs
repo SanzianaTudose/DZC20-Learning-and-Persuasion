@@ -57,13 +57,6 @@ public class AnswerManager : MonoBehaviour {
             
             answerCount++;
 
-            // Debugging answers
-            string logMessage = "";
-            logMessage += answerCount + " answer(s). ";
-            foreach (var player in PhotonNetwork.PlayerList)
-                logMessage += player.CustomProperties["answer"] + "; ";
-            print(logMessage);
-
             // If every player submitted, transition to VotingScene
             if (answerCount == PhotonNetwork.PlayerList.Length)
                 PhotonNetwork.LoadLevel("VotingScene");
