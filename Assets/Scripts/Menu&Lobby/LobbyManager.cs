@@ -57,19 +57,15 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         // Make sure player is in a room
         if (PhotonNetwork.CurrentRoom == null) return;
 
-        int i = 0;
         foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
         {
-            //player.Value.CustomProperties["cursorIndex"] = i;
 
             PlayerLobbyItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
             newPlayerItem.SetPlayerInfo(player.Value);
 
-            PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"] = i;
-            i++;
-
             if (player.Value == PhotonNetwork.LocalPlayer)
             {
+                PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"] = player.Key - 1;
                 newPlayerItem.ApplyLocalChanges();
             }
 
@@ -101,6 +97,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickPlayButton()
     {
-        PhotonNetwork.LoadLevel("MainScene");
+        //PhotonNetwork.LoadLevel("MainScene");
+        PhotonNetwork.LoadLevel("SelectSquad");
     }
 }

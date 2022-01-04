@@ -17,11 +17,20 @@ public class PlayerCursorItem : MonoBehaviourPunCallbacks
     //
 
     private Canvas myCanvas;
+
     private void Start()
     {
         myCanvas = GameObject.FindWithTag("MainCanvas").GetComponent<Canvas>();
-        PlayerCursor.sprite = cursors[(int)PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"]];
-        playerName.text = PhotonNetwork.LocalPlayer.NickName;
+        
+        if (PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"] != null)
+        {
+            PlayerCursor.sprite = cursors[(int)PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"]];
+        } else
+        {
+            PlayerCursor.sprite = cursors[0];
+        }
+
+        playerName.text = PhotonNetwork.LocalPlayer.NickName + ": " + PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"];
     }
 
     // TODO

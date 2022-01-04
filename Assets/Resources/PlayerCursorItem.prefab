@@ -53,9 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCursor: {fileID: 2698951370368395891}
   cursors:
-  - {fileID: 21300000, guid: b6f348b1ccf4220429adf69e1453970c, type: 3}
-  - {fileID: 21300000, guid: 5d397bd309ff1f1449ace92d9cac3a00, type: 3}
-  - {fileID: 21300000, guid: 18c95bfb52d0699479b78e9c00d25fc5, type: 3}
+  - {fileID: 21300000, guid: 1c2ae5353adcce14a9ab9d8ca4642e95, type: 3}
+  - {fileID: 21300000, guid: 1c61da46e8a9a26409c0dffe16f2f79c, type: 3}
+  - {fileID: 21300000, guid: 7282491d566a2e044bfeea97e3bf4a95, type: 3}
+  - {fileID: 21300000, guid: 47239d675d4494840b69758ce761bdcb, type: 3}
   playerName: {fileID: 3625024074077128570}
 --- !u!114 &4989355443451668604
 MonoBehaviour:
@@ -271,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.38431373}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
