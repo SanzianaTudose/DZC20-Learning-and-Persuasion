@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
@@ -59,13 +60,18 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
         {
-
+            // Instantiate a player prefab item and set its' info
             PlayerLobbyItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
             newPlayerItem.SetPlayerInfo(player.Value);
 
             if (player.Value == PhotonNetwork.LocalPlayer)
             {
-                PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"] = player.Key - 1;
+                // Set cursorIndex for the localPlayer locally and globally 
+                Hashtable hash = new Hashtable();
+                hash.Add("cursorIndex", player.Key - 1);
+                player.Value.SetCustomProperties(hash);
+
+                // Applies colcal cursor changes for cursor
                 newPlayerItem.ApplyLocalChanges();
             }
 

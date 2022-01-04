@@ -21,40 +21,48 @@ public class PlayerCursorItem : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        // get the canvas object and viewComponent of current object
         myCanvas = GameObject.FindWithTag("MainCanvas").GetComponent<Canvas>();
         view = GetComponent<PhotonView>();
 
-        if (true) setCursor();
+        // Set how the cursor should look 
+        SetCursorAppearance();
+
+        // Apply local changes to only my cursor
+        ApplyLocalChanges();
     }
 
-    void setCursor()
-    {
-        if (PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"] != null)
+    public void SetCursorAppearance()
+    {   
+        // Set image of cursor
+        if (view.Owner.CustomProperties["cursorIndex"] != null)
         {
-            PlayerCursor.sprite = cursors[(int)PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"]];
+            PlayerCursor.sprite = cursors[(int)view.Owner.CustomProperties["cursorIndex"]];
         }
         else
         {
-            PlayerCursor.sprite = cursors[0];
+            PlayerCursor.sprite = cursors[3];
         }
 
-        playerName.text = PhotonNetwork.LocalPlayer.NickName + ": " + PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"];
+        // Set name above cursor 
+        playerName.text = view.Owner.NickName + ": " + view.Owner.CustomProperties["cursorIndex"];
+
+        // Set cursor object parent and scale
+        transform.SetParent(myCanvas.transform);
+        transform.localScale = Vector3.one;
     }
 
-    // TODO
     public void ApplyLocalChanges()
     {
-        Transform[] allChildren = GetComponentsInChildren<Transform>();
-        foreach (Transform child in allChildren)
+        if (view.IsMine)
         {
-            child.gameObject.SetActive(false);
+            playerName.text = "MINE";
         }
     }
 
     private void Update()
     {
-        //CreateUniqueCursor(player);
-
+        // Update this player's cursor only if the mouse is over the game window
         if (view.IsMine && IsMouseOverGameWindow)
         {
             Vector2 pos;
