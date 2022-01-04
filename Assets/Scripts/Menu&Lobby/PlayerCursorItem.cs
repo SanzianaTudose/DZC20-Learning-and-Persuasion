@@ -10,6 +10,7 @@ public class PlayerCursorItem : MonoBehaviourPunCallbacks
 {
     public Image PlayerCursor;
     public Sprite[] cursors;
+    public Sprite transparent;
 
     // For debugging
     private Player player;
@@ -45,7 +46,7 @@ public class PlayerCursorItem : MonoBehaviourPunCallbacks
         }
 
         // Set name above cursor 
-        playerName.text = view.Owner.NickName + ": " + view.Owner.CustomProperties["cursorIndex"];
+        playerName.text = view.Owner.NickName + " : " + view.Owner.CustomProperties["cursorIndex"];
 
         // Set cursor object parent and scale
         transform.SetParent(myCanvas.transform);
@@ -57,6 +58,7 @@ public class PlayerCursorItem : MonoBehaviourPunCallbacks
         if (view.IsMine)
         {
             playerName.text = "MINE";
+            PlayerCursor.sprite = transparent;
         }
     }
 
