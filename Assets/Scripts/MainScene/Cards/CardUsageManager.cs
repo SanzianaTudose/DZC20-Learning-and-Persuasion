@@ -48,7 +48,6 @@ public class CardUsageManager : MonoBehaviour {
     }
 
     private void ToggleCardHighlight(GameObject cardObject, bool isHighlighted) {
-        // TODO: change this to a cooler highlight effect
         Color highlightColor = Color.white;
         if (isHighlighted)
             highlightColor = Color.yellow;

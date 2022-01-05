@@ -103,7 +103,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickPlayButton()
     {
-        PhotonNetwork.LoadLevel("MainScene");
+        PhotonNetwork.LoadLevel("ZianaDev");
         // TODO: change back to PhotonNetwork.LoadLevel("SelectSquad");
     }
 }
