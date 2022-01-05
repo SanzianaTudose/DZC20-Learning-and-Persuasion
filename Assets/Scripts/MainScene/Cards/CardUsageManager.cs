@@ -24,7 +24,7 @@ public class CardUsageManager : MonoBehaviour {
         // Highlight cards and compute new cardsUsed
         int newCardsUsed = 0;
         foreach (string word in cardDict.Keys) {
-            if (answerManager.GetAnswerText().Contains(word)) {
+            if (answerManager.GetAnswerText().ToLower().Contains(word.ToLower())) {
                 newCardsUsed++;
                 ToggleCardHighlight(cardDict[word], true);
             } else
