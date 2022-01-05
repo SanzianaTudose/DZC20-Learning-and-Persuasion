@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
@@ -57,19 +58,20 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         // Make sure player is in a room
         if (PhotonNetwork.CurrentRoom == null) return;
 
-        int i = 0;
         foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
         {
-            //player.Value.CustomProperties["cursorIndex"] = i;
-
+            // Instantiate a player prefab item and set its' info
             PlayerLobbyItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
             newPlayerItem.SetPlayerInfo(player.Value);
 
-            PhotonNetwork.LocalPlayer.CustomProperties["cursorIndex"] = i;
-            i++;
-
             if (player.Value == PhotonNetwork.LocalPlayer)
             {
+                // Set cursorIndex for the localPlayer locally and globally 
+                Hashtable hash = new Hashtable();
+                hash.Add("cursorIndex", player.Key - 1);
+                player.Value.SetCustomProperties(hash);
+
+                // Applies colcal cursor changes for cursor
                 newPlayerItem.ApplyLocalChanges();
             }
 
@@ -101,6 +103,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickPlayButton()
     {
-        PhotonNetwork.LoadLevel("MainScene");
+        //PhotonNetwork.LoadLevel("MainScene");
+        PhotonNetwork.LoadLevel("SelectSquad");
     }
 }

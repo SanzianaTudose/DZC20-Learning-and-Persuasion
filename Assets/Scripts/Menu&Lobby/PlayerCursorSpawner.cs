@@ -10,12 +10,9 @@ public class PlayerCursorSpawner : MonoBehaviourPunCallbacks
 {
     public GameObject playerCursorPrefab;
     public GameObject playerPrefabParent;
-    private GameObject playerCursor;
 
     void Start()
     {
-        playerCursor = (GameObject)PhotonNetwork.Instantiate(playerCursorPrefab.name, Vector3.zero, Quaternion.identity);
-        playerCursor.transform.SetParent(playerPrefabParent.transform);
-        playerCursor.transform.localScale = Vector3.one;
+        PhotonNetwork.Instantiate(playerCursorPrefab.name, Vector3.zero, Quaternion.identity);
     }
 }
