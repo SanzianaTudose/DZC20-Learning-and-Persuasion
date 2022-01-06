@@ -8,23 +8,29 @@ using TMPro;
 
 public class SquadVoting : MonoBehaviourPunCallbacks
 {
+    // Prefab to be created when voting and its intended parent
     public SquadVote playerVotePrefab;
     public Transform playerVoteParent;
 
+    // Keeps track of object created when voting
     private GameObject myVote;
     private bool iHaveVoted;
 
+    // Squad name and vote tracker to give correct parent to vote object
     public TMP_Text squadName;
     private VotesTracker votesTracker;
 
     void Start()
     {
+        // Get the VotesTracker that is used to connect the squad with the votes
         votesTracker = FindObjectsOfType<VotesTracker>()[0];
+        // Link squad object to name 
         votesTracker.AddSquadName(squadName.text, this);
 
         // Remove previous votes on Start if any
         RemovePreviousVotes();
 
+        // Reset voting status
         iHaveVoted = false;
     }
 
@@ -54,6 +60,8 @@ public class SquadVoting : MonoBehaviourPunCallbacks
     }
     public void AddObjectAsMyChild(GameObject vote)
     {
+        // Sets the correct parent and dimensions for each vote
+        // Method is called by the vote object itself
         vote.transform.SetParent(playerVoteParent.transform);
         vote.transform.localScale = Vector3.one;
         vote.transform.localPosition = Vector3.zero;
