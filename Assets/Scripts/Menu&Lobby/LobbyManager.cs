@@ -5,7 +5,6 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using TMPro;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
@@ -16,6 +15,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public Transform playerItemParent;
 
     public GameObject playButton;
+    ExitGames.Client.Photon.Hashtable test = new ExitGames.Client.Photon.Hashtable();
+
 
     void Start()
     {
@@ -28,6 +29,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         // Update the player list
         UpdatePlayerList();
+
+        SetSquadNames();
 
     }
 
@@ -67,11 +70,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             if (player.Value == PhotonNetwork.LocalPlayer)
             {
                 // Set cursorIndex for the localPlayer locally and globally 
-                Hashtable hash = new Hashtable();
+                ExitGames.Client.Photon.Hashtable hash = new ExitGames.Client.Photon.Hashtable();
                 hash.Add("cursorIndex", player.Key - 1);
                 player.Value.SetCustomProperties(hash);
 
-                // Applies colcal cursor changes for cursor
+                // Applies local cursor changes for cursor
                 newPlayerItem.ApplyLocalChanges();
             }
 
@@ -91,14 +94,36 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        // Game can only be started by the master client and if there are at least 2 people
+        // Game can only be started by the master client and if there are at least 1 people
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 1)
         {
             playButton.SetActive(true);
+            SetSquadNames();
         } else
         {
             playButton.SetActive(false);
         }
+    }
+
+    void SetSquadNames()
+    {
+        if (PhotonNetwork.LocalPlayer.CustomProperties["availableSquads"] != null) return;
+
+        string[] availableSquads =
+            {
+                "Yooou its Squad 1",
+                "It do be Squad 2",
+                "This is Squad 3",
+                "There is Squad 4",
+                "Ooops it is Squad 5"
+            };
+        string[] usedSquads = new string[0];
+
+        ExitGames.Client.Photon.Hashtable roomProperties = new ExitGames.Client.Photon.Hashtable();
+        roomProperties.Add("availableSquads", availableSquads);
+        roomProperties.Add("usedSquads", usedSquads);
+        PhotonNetwork.SetPlayerCustomProperties(roomProperties);
+
     }
 
     public void OnClickPlayButton()

@@ -81,6 +81,7 @@ public class PlayerLobbyItem : MonoBehaviourPunCallbacks
         {
             PlayerAvatar.sprite = avatars[0];
             playerProperties["playerAvatar"] = 0;
+            PhotonNetwork.SetPlayerCustomProperties(playerProperties);
         }
     }
 }
