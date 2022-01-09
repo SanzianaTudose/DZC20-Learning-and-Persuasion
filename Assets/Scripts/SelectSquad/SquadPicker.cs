@@ -8,12 +8,12 @@ using TMPro;
 
 public class SquadPicker : MonoBehaviourPunCallbacks
 {
-    public TMP_Text[] squadNames;
-    public SquadVoting[] squadVoting;
+    public SquadVoting[] squadVoting; // All squad voting objects
+    private TMP_Text[] squadNames; // All text objects
 
     private string[] availableSquads;
     private string[] usedSquads;
-    public string[] chosenSquadNames;
+    private string[] chosenSquadNames;
 
     List<string> avSquadsList = new List<string>();
     List<string> usSquadsList = new List<string>();
@@ -23,6 +23,8 @@ public class SquadPicker : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        GetParentsAndTextObjects();
+
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
             SetAppropriateSquadNames();
@@ -92,6 +94,42 @@ public class SquadPicker : MonoBehaviourPunCallbacks
 
     }
 
+    private void GetParentsAndTextObjects()
+    {
+        int n = squadVoting.Length;
+        squadNames = new TMP_Text[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            squadNames[i] = squadVoting[i].GetSquadName();
+        }
+    }
+
+    private string PickAvailableSquad()
+    {
+        int rand = Random.Range(0, avSquadsList.Count);
+        string toReturn = avSquadsList[rand];
+        avSquadsList.RemoveAt(rand);
+
+        return toReturn;
+    }
+
+    private string PickUsedSquad()
+    {
+        int rand = Random.Range(0, usSquadsList.Count);
+        string toReturn = usSquadsList[rand];
+        usSquadsList.RemoveAt(rand);
+
+        return toReturn;
+    }
+
+    private void SetSquadsVotingStatus()
+    {
+        foreach (SquadVoting squad in squadVoting)
+        {
+            squad.SetVotingStatus();
+        }
+    }
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
     {
         if (targetPlayer.IsMasterClient)
@@ -107,30 +145,52 @@ public class SquadPicker : MonoBehaviourPunCallbacks
         }
     }
 
-    string PickAvailableSquad()
+    public void CountVotes()
     {
-        int rand = Random.Range(0, avSquadsList.Count);
-        string toReturn = avSquadsList[rand];
-        avSquadsList.RemoveAt(rand);
+        int maxVotes = -1;
+        int maxCount = 1;
+        int currentVotes;
 
-        return toReturn;
-    }
-
-    string PickUsedSquad()
-    {
-        int rand = Random.Range(0, usSquadsList.Count);
-        string toReturn = usSquadsList[rand];
-        usSquadsList.RemoveAt(rand);
-
-        return toReturn;
-    }
-
-    void SetSquadsVotingStatus()
-    {
-        foreach (SquadVoting squad in squadVoting)
+        // Find number of votes that is maximal across all squads
+        foreach (SquadVoting item in squadVoting)
         {
-            squad.SetVotingStatus();
+            // Get number of votes of current item
+            currentVotes = item.GetSquadVotes().transform.childCount;
+
+            if (currentVotes > maxVotes)
+            {
+                maxVotes = currentVotes;
+                maxCount = 1;
+            } else if (currentVotes == maxVotes)
+            {
+                maxCount++;
+            }
         }
+
+        // Variables for finding all names of squads with maximum votes
+        string[] possibleSquads = new string[maxCount];
+        int i = 0;
+
+        foreach (SquadVoting item in squadVoting)
+        {
+            // Get number of votes of current item
+            currentVotes = item.GetSquadVotes().transform.childCount;
+
+            // If current item has maximum votes save its name
+            if (currentVotes == maxVotes)
+            {
+                possibleSquads[i] = item.GetSquadName().text;
+                i++;
+            }
+        }
+
+        // Choose a random squad with maximum votes
+        int rand = Random.Range(0, possibleSquads.Length);
+        string chosenSquad = possibleSquads[rand];
+            
+        Debug.Log(chosenSquad);
+
+        // TODO: remove chosen squad so that it cannot be played again
     }
 
     // Function for debugging

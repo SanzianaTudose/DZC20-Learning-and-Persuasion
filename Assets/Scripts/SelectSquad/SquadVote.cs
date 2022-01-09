@@ -11,6 +11,7 @@ public class SquadVote : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
     private VotesTracker votesTracker;
     public Image texture;
     private PhotonView view;
+    private int myAvatarIndex = 0;
 
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {
@@ -26,7 +27,8 @@ public class SquadVote : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
 
         // Add correct texture to the vote corresponding to the avatar of the person voting
         view = GetComponent<PhotonView>();
-        int avatarID = (int)view.Owner.CustomProperties["playerAvatar"];
-        texture.sprite = votesTracker.GetAvatarImage(avatarID);
+        myAvatarIndex = (int)view.Owner.CustomProperties["playerAvatar"];
+        texture.sprite = votesTracker.GetAvatarImage(myAvatarIndex);
+
     }
 }

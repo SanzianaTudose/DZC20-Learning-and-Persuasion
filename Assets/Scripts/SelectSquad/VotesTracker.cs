@@ -13,8 +13,7 @@ public class VotesTracker : MonoBehaviourPunCallbacks
 
     // All possible player avatars
     public Sprite[] avatars;
-
-
+    
     void Start()
     {
         // Initialize the squads
@@ -36,6 +35,11 @@ public class VotesTracker : MonoBehaviourPunCallbacks
         }
 
         return null;
+    }
+
+    public Dictionary<string, SquadVoting> GetAllSquadObjects()
+    {
+        return squads;
     }
 
     // Returns the avatar image corresponding to an index
