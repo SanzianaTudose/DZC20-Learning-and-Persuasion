@@ -29,6 +29,5 @@ public class SquadVote : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
         view = GetComponent<PhotonView>();
         myAvatarIndex = (int)view.Owner.CustomProperties["playerAvatar"];
         texture.sprite = votesTracker.GetAvatarImage(myAvatarIndex);
-
     }
 }

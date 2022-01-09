@@ -75,10 +75,8 @@ public class SquadVoting : MonoBehaviourPunCallbacks
                 // Remove my previous vote
                 PhotonNetwork.Destroy(squad.Value.myVote);
                 squad.Value.iHaveVoted = false;
-
                 break;
             }
-
         }
     }
 

@@ -91,7 +91,6 @@ public class SquadPicker : MonoBehaviourPunCallbacks
         roomProperties["usedSquads"] = newUsedSquads;
         roomProperties["chosenSquads"] = chosenSquadNames;
         PhotonNetwork.LocalPlayer.SetCustomProperties(roomProperties);
-
     }
 
     private void GetParentsAndTextObjects()
