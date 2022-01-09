@@ -20,7 +20,7 @@ public class SquadVoting : MonoBehaviourPunCallbacks
     public TMP_Text squadName;
     private VotesTracker votesTracker;
 
-    void Start()
+    public void SetVotingStatus()
     {
         // Get the VotesTracker that is used to connect the squad with the votes
         votesTracker = FindObjectsOfType<VotesTracker>()[0];

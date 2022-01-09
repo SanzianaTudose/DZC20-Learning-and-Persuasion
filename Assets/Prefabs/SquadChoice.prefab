@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerVotePrefab: {fileID: 1290177296330946358, guid: 2e9306b9beb04b34a8828354d8ecd157, type: 3}
-  playerVoteParent: {fileID: 0}
+  playerVoteParent: {fileID: 6196603363283030762}
   squadName: {fileID: 6196603364394637927}
 --- !u!114 &6196603363378147783
 MonoBehaviour:
@@ -317,7 +317,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Squad Choice 1
+  m_text: 'Squad Choice
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
