@@ -8,12 +8,12 @@ using TMPro;
 
 public class SquadPicker : MonoBehaviourPunCallbacks
 {
-    public TMP_Text[] squadNames;
-    public SquadVoting[] squadVoting;
+    public SquadVoting[] squadVoting; // All squad voting objects
+    private TMP_Text[] squadNames; // All text objects
 
     private string[] availableSquads;
     private string[] usedSquads;
-    public string[] chosenSquadNames;
+    private string[] chosenSquadNames;
 
     List<string> avSquadsList = new List<string>();
     List<string> usSquadsList = new List<string>();
@@ -23,6 +23,8 @@ public class SquadPicker : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        GetParentsAndTextObjects();
+
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
             SetAppropriateSquadNames();
@@ -89,25 +91,20 @@ public class SquadPicker : MonoBehaviourPunCallbacks
         roomProperties["usedSquads"] = newUsedSquads;
         roomProperties["chosenSquads"] = chosenSquadNames;
         PhotonNetwork.LocalPlayer.SetCustomProperties(roomProperties);
-
     }
 
-    public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
+    private void GetParentsAndTextObjects()
     {
-        if (targetPlayer.IsMasterClient)
+        int n = squadVoting.Length;
+        squadNames = new TMP_Text[n];
+
+        for (int i = 0; i < n; i++)
         {
-            string[] a = (string[])targetPlayer.CustomProperties["chosenSquads"];
-
-            for (int i = 0; i < a.Length; i++)
-            {
-                squadNames[i].text = a[i];
-            }
-
-            SetSquadsVotingStatus();
+            squadNames[i] = squadVoting[i].GetSquadName();
         }
     }
 
-    string PickAvailableSquad()
+    private string PickAvailableSquad()
     {
         int rand = Random.Range(0, avSquadsList.Count);
         string toReturn = avSquadsList[rand];
@@ -116,7 +113,7 @@ public class SquadPicker : MonoBehaviourPunCallbacks
         return toReturn;
     }
 
-    string PickUsedSquad()
+    private string PickUsedSquad()
     {
         int rand = Random.Range(0, usSquadsList.Count);
         string toReturn = usSquadsList[rand];
@@ -125,12 +122,74 @@ public class SquadPicker : MonoBehaviourPunCallbacks
         return toReturn;
     }
 
-    void SetSquadsVotingStatus()
+    private void SetSquadsVotingStatus()
     {
         foreach (SquadVoting squad in squadVoting)
         {
             squad.SetVotingStatus();
         }
+    }
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
+    {
+        if (targetPlayer.IsMasterClient)
+        {
+            string[] _chosenSquads = (string[])targetPlayer.CustomProperties["chosenSquads"];
+
+            for (int i = 0; i < _chosenSquads.Length; i++)
+            {
+                squadNames[i].text = _chosenSquads[i];
+            }
+
+            SetSquadsVotingStatus();
+        }
+    }
+
+    public void CountVotes()
+    {
+        int maxVotes = -1;
+        int maxCount = 1;
+        int currentVotes;
+
+        // Find number of votes that is maximal across all squads
+        foreach (SquadVoting item in squadVoting)
+        {
+            // Get number of votes of current item
+            currentVotes = item.GetSquadVotes().transform.childCount;
+
+            if (currentVotes > maxVotes)
+            {
+                maxVotes = currentVotes;
+                maxCount = 1;
+            } else if (currentVotes == maxVotes)
+            {
+                maxCount++;
+            }
+        }
+
+        // Variables for finding all names of squads with maximum votes
+        string[] possibleSquads = new string[maxCount];
+        int i = 0;
+
+        foreach (SquadVoting item in squadVoting)
+        {
+            // Get number of votes of current item
+            currentVotes = item.GetSquadVotes().transform.childCount;
+
+            // If current item has maximum votes save its name
+            if (currentVotes == maxVotes)
+            {
+                possibleSquads[i] = item.GetSquadName().text;
+                i++;
+            }
+        }
+
+        // Choose a random squad with maximum votes
+        int rand = Random.Range(0, possibleSquads.Length);
+        string chosenSquad = possibleSquads[rand];
+            
+        Debug.Log(chosenSquad);
+
+        // TODO: remove chosen squad so that it cannot be played again
     }
 
     // Function for debugging
