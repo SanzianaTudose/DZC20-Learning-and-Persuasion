@@ -13,6 +13,7 @@ public class AnswerDisplayController : MonoBehaviour {
     void Start() {
         int textBoxCount = 0;
         foreach (var player in PhotonNetwork.PlayerList) {
+            // TODO: handle players that didn't submit answer
             answerTextBoxes[textBoxCount].text = player.CustomProperties["answer"].ToString();
             textBoxCount++;
         }

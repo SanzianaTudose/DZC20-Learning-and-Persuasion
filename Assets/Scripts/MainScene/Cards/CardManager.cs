@@ -20,15 +20,6 @@ public class CardManager : MonoBehaviour {
         DistributeCards();
     }
 
-    // Called by the Submit button on AnswerBox
-    public void OnClickSubmit() {
-        if (!cardUsageManager.CanSubmit())
-            return;
-
-        // TODO: player shouldn't redraw cards and should instead wait for others to finish 
-        DistributeCards();
-    }
-
     public List<GameObject> GetCardObjects() {
         return cardObjects;
     }

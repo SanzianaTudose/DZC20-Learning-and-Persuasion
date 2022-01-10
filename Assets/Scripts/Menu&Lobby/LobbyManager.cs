@@ -128,7 +128,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickPlayButton()
     {
-        //PhotonNetwork.LoadLevel("MainScene");
         PhotonNetwork.LoadLevel("SelectSquad");
     }
 }

@@ -24,7 +24,7 @@ public class CardUsageManager : MonoBehaviour {
         // Highlight cards and compute new cardsUsed
         int newCardsUsed = 0;
         foreach (string word in cardDict.Keys) {
-            if (answerManager.GetAnswerText().Contains(word)) {
+            if (answerManager.GetAnswerText().ToLower().Contains(word.ToLower())) {
                 newCardsUsed++;
                 ToggleCardHighlight(cardDict[word], true);
             } else
@@ -48,7 +48,6 @@ public class CardUsageManager : MonoBehaviour {
     }
 
     private void ToggleCardHighlight(GameObject cardObject, bool isHighlighted) {
-        // TODO: change this to a cooler highlight effect
         Color highlightColor = Color.white;
         if (isHighlighted)
             highlightColor = Color.yellow;
