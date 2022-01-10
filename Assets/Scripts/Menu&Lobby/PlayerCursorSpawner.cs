@@ -15,4 +15,5 @@ public class PlayerCursorSpawner : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.Instantiate(playerCursorPrefab.name, Vector3.zero, Quaternion.identity);
     }
+
 }

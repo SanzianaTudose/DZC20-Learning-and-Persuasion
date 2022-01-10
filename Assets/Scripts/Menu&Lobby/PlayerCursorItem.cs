@@ -46,7 +46,7 @@ public class PlayerCursorItem : MonoBehaviourPunCallbacks
         }
 
         // Set name above cursor 
-        playerName.text = view.Owner.NickName + " : " + view.Owner.CustomProperties["cursorIndex"];
+        playerName.text = view.Owner.NickName + " c: " + view.Owner.CustomProperties["cursorIndex"] + " a: " + view.Owner.CustomProperties["playerAvatar"];
 
         // Set cursor object parent and scale
         transform.SetParent(myCanvas.transform);
@@ -57,7 +57,7 @@ public class PlayerCursorItem : MonoBehaviourPunCallbacks
     {
         if (view.IsMine)
         {
-            playerName.text = "MINE";
+            //playerName.text = "MINE";
             PlayerCursor.sprite = transparent;
         }
     }
@@ -70,7 +70,6 @@ public class PlayerCursorItem : MonoBehaviourPunCallbacks
             Vector2 pos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
             transform.position = myCanvas.transform.TransformPoint(pos);
-            
         }
     }
 
