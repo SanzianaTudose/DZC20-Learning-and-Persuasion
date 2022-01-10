@@ -133,11 +133,11 @@ public class SquadPicker : MonoBehaviourPunCallbacks
     {
         if (targetPlayer.IsMasterClient)
         {
-            string[] a = (string[])targetPlayer.CustomProperties["chosenSquads"];
+            string[] _chosenSquads = (string[])targetPlayer.CustomProperties["chosenSquads"];
 
-            for (int i = 0; i < a.Length; i++)
+            for (int i = 0; i < _chosenSquads.Length; i++)
             {
-                squadNames[i].text = a[i];
+                squadNames[i].text = _chosenSquads[i];
             }
 
             SetSquadsVotingStatus();
