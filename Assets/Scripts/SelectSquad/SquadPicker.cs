@@ -192,6 +192,13 @@ public class SquadPicker : MonoBehaviourPunCallbacks
         // TODO: remove chosen squad so that it cannot be played again
     }
 
+    // Method called when timer ends, counts votes and transitions to presenting the case
+    public void OnVoteEnd() {
+        CountVotes();
+        // TODO: this is for DEBUGGING, change to actual Case Presentation
+        PhotonNetwork.LoadLevel("MainScene");
+    }
+
     // Function for debugging
     public void GoToLobbyButton()
     {

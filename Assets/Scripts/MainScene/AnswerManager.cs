@@ -43,6 +43,11 @@ public class AnswerManager : MonoBehaviour {
         submitButtonText.SetText("re-submit");
     }
 
+    // Called when timer ends, transitions players to VotingScene
+    public void OnAnswerTimerEnd() {
+        PhotonNetwork.LoadLevel("VotingScene");
+    }
+
     #region Photon Events-related methods
     private void OnEnable() {
         PhotonNetwork.NetworkingClient.EventReceived += NetworkingClient_EventReceived;
