@@ -15,19 +15,8 @@ public class CaseIntroController : MonoBehaviour {
     [SerializeField] private TMP_Text caseText;
     [SerializeField] private GameObject continueButton;
 
-    /*
-        "Inclusive Design and Thoughtful Technology",
-        "Games And Play",
-        "Vitality",
-        "Transforming Practices",
-        "Crafting Wearable Senses",
-        "New futures (connectivity in the home)",
-        "Health",
-        "Sensory Matters (sustainable food systems)",
-        "Artifice - Artificial Intelligence",
-     */
-
-    // TODO: came up with a structure to hold the cases 
+    [Header("Gameplay Variables")]
+    [SerializeField] private List<Case> allCases;
 
     public void startCaseIntro(string pickedSquad) {
         squadText.SetText(pickedSquad);
@@ -50,7 +39,14 @@ public class CaseIntroController : MonoBehaviour {
     }
 
     private string pickCaseforSquad(string pickedSquad) {
-        // TODO: implement this
-        return "lorem ipsum dolor sit amet";
+        List<Case> possibleCases = new List<Case>();
+
+        foreach (Case it in allCases) {
+            if (it.getSquadString() == pickedSquad)
+                possibleCases.Add(it);
+        }
+
+        Case pickedCase = possibleCases[Random.Range(0, possibleCases.Count - 1)];
+        return pickedCase.caseText;
     }
 }

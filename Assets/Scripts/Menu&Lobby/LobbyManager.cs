@@ -109,6 +109,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.LocalPlayer.CustomProperties["availableSquads"] != null) return;
 
+        // WARNING: if these names are changed => Case.cs will have errors
         string[] availableSquads =
             {
                 "Inclusive Design and Thoughtful Technology",
@@ -116,7 +117,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
                 "Vitality",
                 "Transforming Practices",
                 "Crafting Wearable Senses",
-                "New futures (connectivity in the home)",
+                "New Futures (connectivity in the home)",
                 "Health",
                 "Sensory Matters (sustainable food systems)",
                 "Artifice - Artificial Intelligence",
