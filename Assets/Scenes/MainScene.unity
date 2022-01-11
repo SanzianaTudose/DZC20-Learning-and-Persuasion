@@ -1290,6 +1290,21 @@ MonoBehaviour:
   timerText: {fileID: 1345308116}
   almostDoneColor: {r: 0.9150943, g: 0.19424175, b: 0.19424175, a: 1}
   totalSeconds: 60
+  OnTimerEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1345432372}
+        m_TargetAssemblyTypeName: AnswerManager, Assembly-CSharp
+        m_MethodName: OnAnswerTimerEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1345308116
 MonoBehaviour:
   m_ObjectHideFlags: 0

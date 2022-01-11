@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 using Photon.Pun;
 
@@ -11,7 +12,9 @@ public class TimerController : MonoBehaviour {
 
     [Header("Gameplay values")]
     [SerializeField] private float totalSeconds = 120;
-    
+    [SerializeField] private UnityEvent OnTimerEnd; 
+    // TODO: configure this in MainScene as well
+
     private float timeRemaining;
     private bool timerRunning = true;
     
@@ -28,7 +31,7 @@ public class TimerController : MonoBehaviour {
             } else { 
                 timeRemaining = 0;
                 timerRunning = false;
-                StartCoroutine(FlashAndTransitionSceneCo());
+                StartCoroutine(FlashAndEndTimerCo());
             }
         }
     }
@@ -41,7 +44,7 @@ public class TimerController : MonoBehaviour {
         if (timeRemaining <= 10)
             timerText.color = almostDoneColor;
     }
-    IEnumerator FlashAndTransitionSceneCo() {
+    IEnumerator FlashAndEndTimerCo() {
         // Flash before transitioning 
         for (int i = 1; i <= 6; i++) {
             timerText.alpha = 0;
@@ -50,6 +53,8 @@ public class TimerController : MonoBehaviour {
             yield return new WaitForSeconds(0.3f);
         }
 
-        PhotonNetwork.LoadLevel("VotingScene");
+        OnTimerEnd.Invoke();
     }
+
+
 }

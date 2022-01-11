@@ -21,6 +21,8 @@ public class SquadPicker : MonoBehaviourPunCallbacks
 
     ExitGames.Client.Photon.Hashtable roomProperties = new ExitGames.Client.Photon.Hashtable();
 
+    [SerializeField] private CaseIntroController caseIntroController;
+
     private void Start()
     {
         GetParentsAndTextObjects();
@@ -144,7 +146,7 @@ public class SquadPicker : MonoBehaviourPunCallbacks
         }
     }
 
-    public void CountVotes()
+    public string CountVotes()
     {
         int maxVotes = -1;
         int maxCount = 1;
@@ -187,9 +189,15 @@ public class SquadPicker : MonoBehaviourPunCallbacks
         int rand = Random.Range(0, possibleSquads.Length);
         string chosenSquad = possibleSquads[rand];
             
-        Debug.Log(chosenSquad);
+        return chosenSquad;
 
         // TODO: remove chosen squad so that it cannot be played again
+    }
+
+    // Method called when timer ends, counts votes and starts Case Introduction
+    public void OnVoteEnd() {
+        string pickedSquad = CountVotes();
+        caseIntroController.startCaseIntro(pickedSquad);
     }
 
     // Function for debugging
