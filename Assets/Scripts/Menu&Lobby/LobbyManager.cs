@@ -111,11 +111,15 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         string[] availableSquads =
             {
-                "Yooou its Squad 1",
-                "It do be Squad 2",
-                "This is Squad 3",
-                "There is Squad 4",
-                "Ooops it is Squad 5"
+                "Inclusive Design and Thoughtful Technology",
+                "Games And Play",
+                "Vitality",
+                "Transforming Practices",
+                "Crafting Wearable Senses",
+                "New futures (connectivity in the home)",
+                "Health",
+                "Sensory Matters (sustainable food systems)",
+                "Artifice - Artificial Intelligence",
             };
         string[] usedSquads = new string[0];
 
