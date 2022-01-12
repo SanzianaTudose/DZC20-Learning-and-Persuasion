@@ -35,19 +35,19 @@ public class SquadPicker : MonoBehaviourPunCallbacks
 
     void SetAppropriateSquadNames()
     {
-        availableSquads = (string[])PhotonNetwork.LocalPlayer.CustomProperties["availableSquads"];
-        usedSquads = (string[])PhotonNetwork.LocalPlayer.CustomProperties["usedSquads"];
+        availableSquads = (string[])PhotonNetwork.CurrentRoom.CustomProperties["availableSquads"];
+        usedSquads = (string[])PhotonNetwork.CurrentRoom.CustomProperties["usedSquads"];
 
         // Convert available squads to a list
         foreach (string squad in availableSquads)
         {
-            avSquadsList.Add(squad);
+            if (squad != "") avSquadsList.Add(squad);
         }
 
         // Convert used squads to a list
         foreach (string squad in usedSquads)
         {
-            usSquadsList.Add(squad);
+            if (squad != "") usSquadsList.Add(squad);
         }
 
         chosenSquadNames = new string[squadNames.Length];
@@ -87,12 +87,11 @@ public class SquadPicker : MonoBehaviourPunCallbacks
             newUsedSquads[i] = newUsedSquadsList[i];
         }
 
-
         // Set custom property
         roomProperties["availableSquads"] = newAvlblSquads;
         roomProperties["usedSquads"] = newUsedSquads;
         roomProperties["chosenSquads"] = chosenSquadNames;
-        PhotonNetwork.LocalPlayer.SetCustomProperties(roomProperties);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
     }
 
     private void GetParentsAndTextObjects()
@@ -131,11 +130,12 @@ public class SquadPicker : MonoBehaviourPunCallbacks
             squad.SetVotingStatus();
         }
     }
-    public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
+
+    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
-        if (targetPlayer.IsMasterClient)
+        if (propertiesThatChanged.ContainsKey("chosenSquads"))
         {
-            string[] _chosenSquads = (string[])targetPlayer.CustomProperties["chosenSquads"];
+            string[] _chosenSquads = (string[])PhotonNetwork.CurrentRoom.CustomProperties["chosenSquads"];
 
             for (int i = 0; i < _chosenSquads.Length; i++)
             {
@@ -144,6 +144,11 @@ public class SquadPicker : MonoBehaviourPunCallbacks
 
             SetSquadsVotingStatus();
         }
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        base.OnPlayerEnteredRoom(newPlayer);
     }
 
     public string CountVotes()
@@ -189,9 +194,23 @@ public class SquadPicker : MonoBehaviourPunCallbacks
         int rand = Random.Range(0, possibleSquads.Length);
         string chosenSquad = possibleSquads[rand];
             
+
+        // Remove chosen squad so that it cannot be played again
+        usedSquads = (string[])PhotonNetwork.CurrentRoom.CustomProperties["usedSquads"];
+        for (int j = 0; j < usedSquads.Length; j++)
+        {
+            if (usedSquads[j] == chosenSquad)
+            {
+                usedSquads[j] = "";
+                break;
+            }
+        }
+        ExitGames.Client.Photon.Hashtable _roomProperties = new ExitGames.Client.Photon.Hashtable();
+        _roomProperties.Add("usedSquads", usedSquads);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(_roomProperties);
+
         return chosenSquad;
 
-        // TODO: remove chosen squad so that it cannot be played again
     }
 
     // Method called when timer ends, counts votes and starts Case Introduction

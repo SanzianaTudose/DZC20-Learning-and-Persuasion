@@ -107,7 +107,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     void SetSquadNames()
     {
-        if (PhotonNetwork.LocalPlayer.CustomProperties["availableSquads"] != null) return;
+        if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("availableSquads")) return;
 
         // WARNING: if these names are changed => Case.cs will have errors
         string[] availableSquads =
@@ -127,7 +127,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         ExitGames.Client.Photon.Hashtable roomProperties = new ExitGames.Client.Photon.Hashtable();
         roomProperties.Add("availableSquads", availableSquads);
         roomProperties.Add("usedSquads", usedSquads);
-        PhotonNetwork.SetPlayerCustomProperties(roomProperties);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
 
     }
 
