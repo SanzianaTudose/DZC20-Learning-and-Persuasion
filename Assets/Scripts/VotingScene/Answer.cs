@@ -117,4 +117,9 @@ public class Answer : MonoBehaviourPunCallbacks
     {
         submittedBy = _player;
     }
+
+    public Player GetSubmittedByPlayer()
+    {
+        return submittedBy;
+    }
 }
