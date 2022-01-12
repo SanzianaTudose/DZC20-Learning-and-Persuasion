@@ -1,20 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 using Photon.Pun;
+using Photon.Realtime;
+using TMPro;
 
-// ~ Super quick demo to see if it works ~
-// Displays player answers in VotingScene
 public class AnswerDisplayController : MonoBehaviour {
-    [SerializeField]
-    private List<TMP_Text> answerTextBoxes;
+
+    private Answer[] answerObjs;
 
     void Start() {
+        // Get all answer objects
+        answerObjs = gameObject.GetComponentsInChildren<Answer>();
+
+        SetAnswers();
+    }
+
+    private void SetAnswers()
+    {
         int textBoxCount = 0;
-        foreach (var player in PhotonNetwork.PlayerList) {
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            Answer currentAns = answerObjs[textBoxCount];
             // TODO: handle players that didn't submit answer
-            answerTextBoxes[textBoxCount].text = player.CustomProperties["answer"].ToString();
+            currentAns.SetAnswerText(player.CustomProperties["answer"].ToString());
+            currentAns.SetSubmittedByPlayer(player);
+            currentAns.SetVotingStatus();
             textBoxCount++;
         }
     }
