@@ -47,6 +47,9 @@ public class Answer : MonoBehaviourPunCallbacks
 
     public void AddOrRemoveVote()
     {
+        // You cannot vote for yourself
+        if (submittedBy == PhotonNetwork.LocalPlayer) return;
+
         if (iHaveVoted)
         {
             // If I have voted then remove my vote
