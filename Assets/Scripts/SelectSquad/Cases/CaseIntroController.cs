@@ -26,19 +26,22 @@ public class CaseIntroController : MonoBehaviour {
         this.gameObject.SetActive(true);
 
         // Pick case for Squad
-        string pickedCase = pickCaseforSquad(pickedSquad);
+        string pickedCase = PickCaseforSquad(pickedSquad);
         caseText.SetText(pickedCase);
 
         // Only enable Continue button for MasterClient
         if (!PhotonNetwork.LocalPlayer.IsMasterClient)
             continueButton.SetActive(false);
+        
+        if (PhotonNetwork.LocalPlayer.IsMasterClient)
+            SetSquadAndCaseRoomProperties(pickedSquad, pickedCase);
     }
 
     public void OnClickContinue() {
         PhotonNetwork.LoadLevel("MainScene");
     }
 
-    private string pickCaseforSquad(string pickedSquad) {
+    private string PickCaseforSquad(string pickedSquad) {
         List<Case> possibleCases = new List<Case>();
 
         foreach (Case it in allCases) {
@@ -48,5 +51,11 @@ public class CaseIntroController : MonoBehaviour {
 
         Case pickedCase = possibleCases[Random.Range(0, possibleCases.Count - 1)];
         return pickedCase.caseText;
+    }
+    private void SetSquadAndCaseRoomProperties(string pickedSquad, string pickedCase) {
+        ExitGames.Client.Photon.Hashtable roomProperties = new ExitGames.Client.Photon.Hashtable();
+        roomProperties.Add("pickedSquad", pickedSquad);
+        roomProperties.Add("pickedCase", pickedCase);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
     }
 }
