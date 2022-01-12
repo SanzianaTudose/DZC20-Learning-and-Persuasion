@@ -8,17 +8,20 @@ using TMPro;
 
 public class AnswerDisplayController : MonoBehaviour {
 
-    private Answer[] answerObjs;
+    public Answer[] answerObjs;
 
     void Start() {
-        // Get all answer objects
-        answerObjs = gameObject.GetComponentsInChildren<Answer>();
-
         SetAnswers();
     }
 
     private void SetAnswers()
     {
+        int playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+        for (int i = playerCount; i < answerObjs.Length; i++)
+        {
+            GameObject.Destroy(answerObjs[i].gameObject);
+        }
+
         int textBoxCount = 0;
         foreach (var player in PhotonNetwork.PlayerList)
         {

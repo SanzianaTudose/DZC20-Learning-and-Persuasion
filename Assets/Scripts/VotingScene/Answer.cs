@@ -9,7 +9,7 @@ using TMPro;
 public class Answer : MonoBehaviourPunCallbacks
 {
     // Prefab to be created when voting and its intended parent
-    public SquadVote playerVotePrefab;
+    public Vote playerVotePrefab;
     public Transform playerVoteParent; // AnswerContainer
 
     // Keeps track of object created when voting
