@@ -9,6 +9,7 @@ using TMPro;
 public class VotesCounter : MonoBehaviourPunCallbacks
 {
     public AnswerDisplayController ansContainer;
+    public TransitionToResults transitionObj;
     private Answer[] ansObjs;
     public void CountVotes()
     {
@@ -25,6 +26,7 @@ public class VotesCounter : MonoBehaviourPunCallbacks
 
             // Save the points that the player should get
             int newPoints = GetNumberOfPoints(votes, 1);
+            ansObjs[i].pointsThisRound = newPoints;
 
             // Add the points to the current points of the player
             AddPointsToPlayer(submittedBy, newPoints);
@@ -32,6 +34,7 @@ public class VotesCounter : MonoBehaviourPunCallbacks
             newPointsArray[i] = newPoints;
         }
 
+        transitionObj.StartRotatingAnswers();
     }
 
     public void GetLocalPoints()

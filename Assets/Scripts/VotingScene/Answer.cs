@@ -20,6 +20,7 @@ public class Answer : MonoBehaviourPunCallbacks
     // Answer text and vote tracker to give correct parent to vote object
     public TMP_Text answerText;
     private Player submittedBy;
+    [HideInInspector] public int pointsThisRound;
     private VotingVotesTracker votesTracker;
 
     public void SetVotingStatus()
@@ -35,9 +36,10 @@ public class Answer : MonoBehaviourPunCallbacks
 
         // Reset voting status
         iHaveVoted = false;
+        pointsThisRound = 0;
     }
 
-    void RemovePreviousVotes()
+    public void RemovePreviousVotes()
     {
         foreach (Transform child in playerVoteParent)
         {
