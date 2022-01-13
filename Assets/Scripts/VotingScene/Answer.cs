@@ -16,10 +16,18 @@ public class Answer : MonoBehaviourPunCallbacks
     private GameObject myVote;
     [HideInInspector] public bool iHaveVoted;
 
+    // Front and back side containers
+    public GameObject frontSide;
+    public GameObject backSide;
+    public TMP_Text backSideScore;
+    public TMP_Text backSideUserName;
+    public Image backSideAvatar;
+
 
     // Answer text and vote tracker to give correct parent to vote object
     public TMP_Text answerText;
     private Player submittedBy;
+    [HideInInspector] public int pointsThisRound;
     private VotingVotesTracker votesTracker;
 
     public void SetVotingStatus()
@@ -35,9 +43,10 @@ public class Answer : MonoBehaviourPunCallbacks
 
         // Reset voting status
         iHaveVoted = false;
+        pointsThisRound = 0;
     }
 
-    void RemovePreviousVotes()
+    public void RemovePreviousVotes()
     {
         foreach (Transform child in playerVoteParent)
         {
@@ -124,5 +133,20 @@ public class Answer : MonoBehaviourPunCallbacks
     public Player GetSubmittedByPlayer()
     {
         return submittedBy;
+    }
+
+    public void ShowFront()
+    {
+        frontSide.SetActive(true);
+        backSide.SetActive(false);
+    }
+
+    public void ShowBack(int score)
+    {
+        frontSide.SetActive(false);
+        backSide.SetActive(true);
+        backSideScore.text = score.ToString() + " Points";
+        backSideUserName.text = submittedBy.NickName;
+        backSideAvatar.sprite = votesTracker.GetAvatarImage((int)submittedBy.CustomProperties["playerAvatar"]);
     }
 }

@@ -19,8 +19,10 @@ public class AnswerDisplayController : MonoBehaviour {
         int playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
         for (int i = playerCount; i < answerObjs.Length; i++)
         {
-            GameObject.Destroy(answerObjs[i].gameObject);
+            answerObjs[i].gameObject.SetActive(false);
         }
+
+        answerObjs = GetComponentsInChildren<Answer>();
 
         int textBoxCount = 0;
         foreach (var player in PhotonNetwork.PlayerList)
@@ -32,5 +34,10 @@ public class AnswerDisplayController : MonoBehaviour {
             currentAns.SetVotingStatus();
             textBoxCount++;
         }
+    }
+
+    public Answer[] GetAnswers()
+    {
+        return answerObjs;
     }
 }
