@@ -34,6 +34,12 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
 
     public void StartNextRound()
     {
+        if (currentRound == 3)
+        {
+            Debug.Log("Game Ended");
+            return;
+        }
+
         PhotonNetwork.LoadLevel("SelectSquad");
     }
 
