@@ -21,6 +21,12 @@ public class AnswerManager : MonoBehaviour {
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TMP_Text submitButtonText;
 
+    private void Start()
+    {
+        myCustomProperties["answer"] = "";
+        PhotonNetwork.LocalPlayer.SetCustomProperties(myCustomProperties);
+    }
+
     // Called by the Submit button on AnswerBox
     public void OnClickSubmit() {
         if (!cardUsageManager.CanSubmit()) {
@@ -68,8 +74,8 @@ public class AnswerManager : MonoBehaviour {
 
                 int answerCount = 0;
                 foreach (var player in PhotonNetwork.PlayerList) {
-                    var answer = player.CustomProperties["answer"];
-                    if (answer != null)
+                    var answer = (string)player.CustomProperties["answer"];
+                    if (answer != null && answer != "")
                         answerCount++;
                 }
 

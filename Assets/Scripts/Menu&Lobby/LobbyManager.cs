@@ -127,8 +127,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         ExitGames.Client.Photon.Hashtable roomProperties = new ExitGames.Client.Photon.Hashtable();
         roomProperties.Add("availableSquads", availableSquads);
         roomProperties.Add("usedSquads", usedSquads);
+        roomProperties.Add("currentRound", 1);
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
-
     }
 
     public void OnClickPlayButton()
