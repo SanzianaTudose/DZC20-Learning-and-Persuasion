@@ -9,7 +9,7 @@ public class QuestionMarkController : MonoBehaviour {
     [SerializeField] private TMP_Text summaryText;
 
     public void OnClickQuestionMark() {
-        ExitGames.Client.Photon.Hashtable roomProperties = PhotonNetwork.CurrentRoom.CustomProperties;
+       ExitGames.Client.Photon.Hashtable roomProperties = PhotonNetwork.CurrentRoom.CustomProperties;
 
         string pickedSquad = (string) roomProperties["pickedSquad"];
         string pickedCase = (string) roomProperties["pickedCase"];
