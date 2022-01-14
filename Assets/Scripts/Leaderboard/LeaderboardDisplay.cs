@@ -8,8 +8,37 @@ using TMPro;
 
 public class LeaderboardDisplay : MonoBehaviourPunCallbacks
 {
+    public TMP_Text roundText;
+    private ExitGames.Client.Photon.Hashtable roomProps;
+    private int currentRound;
+
+    private void Start()
+    {
+        // Declare default values
+        roomProps = new ExitGames.Client.Photon.Hashtable();
+        currentRound = 1;
+
+        // Get the current round
+        if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("currentRound"))
+        {
+            currentRound = (int)PhotonNetwork.CurrentRoom.CustomProperties["currentRound"];
+        }
+
+        // Display the current round
+        roundText.text = "Round " + currentRound.ToString();
+
+        // Change the "currentRound" room custom property
+        roomProps.Add("currentRound", currentRound + 1);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProps);
+    }
+
     public void StartNextRound()
     {
         PhotonNetwork.LoadLevel("SelectSquad");
+    }
+
+    public int GetCurrentRound()
+    {
+        return currentRound;
     }
 }
