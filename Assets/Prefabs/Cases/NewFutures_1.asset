@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: NewFutures_1
   m_EditorClassIdentifier: 
   caseText: new futures case
-  squad: 0
+  squad: 5

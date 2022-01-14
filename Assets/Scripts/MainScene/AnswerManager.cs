@@ -11,7 +11,7 @@ public class AnswerManager : MonoBehaviour {
     
     private List<string> answers = new List<string>();
 
-    private int answerCount = 0;
+    private bool hasSubmitted = false;
 
     // Photon variables
     private const byte ANSWER_SUBMIT_EVENT = 0;
@@ -35,6 +35,8 @@ public class AnswerManager : MonoBehaviour {
             return;
         }
 
+        hasSubmitted = true;
+
         string answerText = GetAnswerText();
 
         // Add the submitted answer as a CustomProperty of the player
@@ -50,9 +52,23 @@ public class AnswerManager : MonoBehaviour {
     }
 
     // Called when timer ends, transitions players to VotingScene
+
+    #region Timer-related methods
+    public void OnStartFlash() {
+        // DISCLAIMER: Handling auto-submit here is a bit hacky, but it should work reliably
+        if (!hasSubmitted && cardUsageManager.CanSubmit()) {
+            string answerText = GetAnswerText();
+
+            // Add the submitted answer as a CustomProperty of the player
+            myCustomProperties["answer"] = answerText;
+            PhotonNetwork.LocalPlayer.SetCustomProperties(myCustomProperties);
+        }
+    }
+
     public void OnAnswerTimerEnd() {
         PhotonNetwork.LoadLevel("VotingScene");
     }
+    #endregion
 
     #region Photon Events-related methods
     private void OnEnable() {
@@ -68,26 +84,17 @@ public class AnswerManager : MonoBehaviour {
         if (obj.Code == ANSWER_SUBMIT_EVENT) {
             if (!PhotonNetwork.IsMasterClient) return;
 
-            // Counts the number of answers submitted and transitions when all players have submitted
-            if (obj.Code == ANSWER_SUBMIT_EVENT) {
-                if (!PhotonNetwork.IsMasterClient) return;
-
-                int answerCount = 0;
-                foreach (var player in PhotonNetwork.PlayerList) {
-                    var answer = (string)player.CustomProperties["answer"];
-                    if (answer != null && answer != "")
-                        answerCount++;
-                }
-
-                // If every player submitted, transition to VotingScene
-                if (answerCount == PhotonNetwork.PlayerList.Length)
-                    PhotonNetwork.LoadLevel("VotingScene");
+            int answerCount = 0;
+            foreach (var player in PhotonNetwork.PlayerList) {
+                var answer = (string)player.CustomProperties["answer"];
+                if (answer != null && answer != "")
+                    answerCount++;
             }
 
             // If every player submitted, transition to VotingScene
             if (answerCount == PhotonNetwork.PlayerList.Length)
                 PhotonNetwork.LoadLevel("VotingScene");
-        } 
+        }
     }
     #endregion
 
