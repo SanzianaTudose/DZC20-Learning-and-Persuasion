@@ -9,6 +9,7 @@ using TMPro;
 public class VotesCounter : MonoBehaviourPunCallbacks
 {
     public AnswerDisplayController ansContainer;
+    public TransitionToResults transitionObj;
     private Answer[] ansObjs;
     public void CountVotes()
     {
@@ -23,8 +24,13 @@ public class VotesCounter : MonoBehaviourPunCallbacks
             // Get number of votes for the answer
             int votes = ansObjs[i].GetSquadVotes().GetComponentsInChildren<Vote>().Length;
 
+            // Get round
+            int round = (int)PhotonNetwork.CurrentRoom.CustomProperties["currentRound"];
+
+
             // Save the points that the player should get
-            int newPoints = GetNumberOfPoints(votes, 1);
+            int newPoints = GetNumberOfPoints(votes, round);
+            ansObjs[i].pointsThisRound = newPoints;
 
             // Add the points to the current points of the player
             AddPointsToPlayer(submittedBy, newPoints);
@@ -32,6 +38,7 @@ public class VotesCounter : MonoBehaviourPunCallbacks
             newPointsArray[i] = newPoints;
         }
 
+        transitionObj.StartRotatingAnswers();
     }
 
     public void GetLocalPoints()
@@ -59,6 +66,7 @@ public class VotesCounter : MonoBehaviourPunCallbacks
     private int GetNumberOfPoints(int numberOfVotes, int multiplier)
     {
         int result = 0;
+        if (multiplier < 1) multiplier = 1;
 
         if (numberOfVotes == 3) result = 1000;
         if (numberOfVotes == 2) result = 500;
