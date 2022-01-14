@@ -12,8 +12,8 @@ public class TimerController : MonoBehaviour {
 
     [Header("Gameplay values")]
     [SerializeField] private float totalSeconds = 120;
+    [SerializeField] private UnityEvent OnStartFlash; 
     [SerializeField] private UnityEvent OnTimerEnd; 
-    // TODO: configure this in MainScene as well
 
     private float timeRemaining;
     private bool timerRunning = true;
@@ -45,6 +45,9 @@ public class TimerController : MonoBehaviour {
             timerText.color = almostDoneColor;
     }
     IEnumerator FlashAndEndTimerCo() {
+        if (OnStartFlash != null)
+            OnStartFlash.Invoke();
+
         // Flash before transitioning 
         for (int i = 1; i <= 6; i++) {
             timerText.alpha = 0;
