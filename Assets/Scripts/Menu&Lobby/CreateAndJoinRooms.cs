@@ -12,6 +12,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public TMP_InputField createInput;
     public TMP_InputField joinInput;
 
+    public DisplayMessage displayMessage;
+
     private void Start()
     {
         if (PhotonNetwork.NickName != null)
@@ -48,11 +50,13 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
                 return true;
             } else
             {
+                displayMessage.DisplayNewMessage("Invalid room name!");
                 Debug.Log("Invalid room name!");
                 return false;
             }
         } else
         {
+            displayMessage.DisplayNewMessage("Invalid username!");
             Debug.Log("Invalid username!");
             return false;
         }
@@ -67,12 +71,14 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     // Called if room that you want to create already exists
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
+        displayMessage.DisplayNewMessage(message);
         Debug.Log(message);
     }
 
     // Called if room that you want to join does not exist
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
+        displayMessage.DisplayNewMessage(message);
         Debug.Log(message);
     }
 }

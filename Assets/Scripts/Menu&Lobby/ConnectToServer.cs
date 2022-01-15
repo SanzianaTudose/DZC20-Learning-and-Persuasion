@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
-    public GameObject loadingPrompt; 
+    public GameObject loadingPrompt;
+
     public void Connect() {
         loadingPrompt.SetActive(true);
         PhotonNetwork.AutomaticallySyncScene = true;
