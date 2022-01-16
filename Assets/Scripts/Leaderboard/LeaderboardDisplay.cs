@@ -21,7 +21,6 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        DisplayPlayerPointsObjects();
 
         // Declare default values
         roomProps = new ExitGames.Client.Photon.Hashtable();
@@ -35,6 +34,13 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
 
         // Display the current round
         roundText.text = "Round " + currentRound.ToString();
+
+
+        // Change the "currentRound" room custom property
+        roomProps.Add("currentRound", currentRound + 1);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProps);
+
+        DisplayPlayerPointsObjects();
     }
 
     private void DisplayPlayerPointsObjects()
@@ -52,7 +58,6 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
         {
             pointsObj.Value.transform.SetParent(transform);
         }
-        
     }
 
     public void StartNextRound()
@@ -63,10 +68,6 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
             displayMessage.DisplayNewMessage("Game Ended!");
             return;
         }
-
-        // Change the "currentRound" room custom property
-        roomProps.Add("currentRound", currentRound + 1);
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProps);
 
         PhotonNetwork.LoadLevel("SelectSquad");
     }

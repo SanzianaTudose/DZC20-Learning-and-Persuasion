@@ -340,7 +340,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1388898113}
         m_TargetAssemblyTypeName: LeaderboardDisplay, Assembly-CSharp
         m_MethodName: StartNextRound
         m_Mode: 1
