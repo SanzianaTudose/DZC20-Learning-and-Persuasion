@@ -33,6 +33,9 @@ public class AnswerDisplayController : MonoBehaviour {
             currentAns.SetSubmittedByPlayer(player);
             currentAns.SetVotingStatus();
             textBoxCount++;
+
+            string answer = player.CustomProperties["answer"].ToString();
+            Debug.Log("Answer " + answer + " has used OTB: " + player.CustomProperties["usedOTB"]);
         }
     }
 

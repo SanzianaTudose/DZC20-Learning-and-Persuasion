@@ -1256,6 +1256,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f86c91b8bd975f4f903d98fc798b19c, type: 2}
   - {fileID: 11400000, guid: 815624867c074dc41bdac564ec7cce4b, type: 2}
   cardUsageManager: {fileID: 606153012}
+  cardObjects:
+  - {fileID: 1842971157}
+  - {fileID: 785176584}
+  - {fileID: 1586559915}
+  - {fileID: 142657235}
+  - {fileID: 1641608195}
 --- !u!114 &606153012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3317,6 +3323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardUsageManager: {fileID: 606153012}
+  otbController: {fileID: 984169860}
   inputField: {fileID: 969238015}
   submitButtonText: {fileID: 779967575}
 --- !u!1 &1382068216

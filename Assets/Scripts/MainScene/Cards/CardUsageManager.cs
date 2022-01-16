@@ -45,7 +45,6 @@ public class CardUsageManager : MonoBehaviour {
             if (answerText.Contains(otbWord.ToLower())) {
                 hasUsedOTB = true;
                 ToggleCardHighlight(otbCardObject, true);
-                Debug.Log("otb highlight");
             } else {
                 hasUsedOTB = false;
                 ToggleCardHighlight(otbCardObject, false);

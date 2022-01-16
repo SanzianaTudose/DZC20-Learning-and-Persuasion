@@ -9,7 +9,7 @@ public class CardManager : MonoBehaviour {
     [SerializeField]
     private CardUsageManager cardUsageManager;
 
-    private List<GameObject> cardObjects;
+    [SerializeField] private List<GameObject> cardObjects;
     // Holds a list of cards for each Expertise Area 
     private Dictionary<Card.ExpertiseAreas, List<Card>> cardDeck;
     // Keeps track of which card to draw next from each Expertise Area
@@ -25,10 +25,6 @@ public class CardManager : MonoBehaviour {
     }
 
     private void SetPrivateVars() {
-        cardObjects = new List<GameObject>();
-        foreach (Transform child in transform)
-            cardObjects.Add(child.gameObject);
-
         cardDeck = new Dictionary<Card.ExpertiseAreas, List<Card>>();
         nextCard = new Dictionary<Card.ExpertiseAreas, int>();
         foreach (Card card in allCards) {

@@ -6,8 +6,8 @@ using Photon.Realtime;
 using Photon.Pun;
 
 public class AnswerManager : MonoBehaviour {
-    [SerializeField]
-    private CardUsageManager cardUsageManager;
+    [SerializeField] private CardUsageManager cardUsageManager;
+    [SerializeField] private OTBCardController otbController;
     
     private List<string> answers = new List<string>();
 
@@ -37,11 +37,7 @@ public class AnswerManager : MonoBehaviour {
 
         hasSubmitted = true;
 
-        string answerText = GetAnswerText();
-
-        // Add the submitted answer as a CustomProperty of the player
-        myCustomProperties["answer"] = answerText;
-        PhotonNetwork.LocalPlayer.SetCustomProperties(myCustomProperties);
+        setSubmitCustomProperties(GetAnswerText());
 
         // Raise Event to notify MasterClient that an answer has been submitted
         RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All }; // Set the Receivers to All to receive event on the local client
@@ -51,26 +47,37 @@ public class AnswerManager : MonoBehaviour {
         submitButtonText.SetText("re-submit");
     }
 
-    // Called when timer ends, transitions players to VotingScene
-
     #region Timer-related methods
     public void OnStartFlash() {
         // DISCLAIMER: Handling auto-submit here is a bit hacky, but it should work reliably
         if (!hasSubmitted && cardUsageManager.CanSubmit()) {
             string answerText = GetAnswerText();
 
-            // Add the submitted answer as a CustomProperty of the player
-            myCustomProperties["answer"] = answerText;
-            PhotonNetwork.LocalPlayer.SetCustomProperties(myCustomProperties);
+            setSubmitCustomProperties(answerText);
         }
     }
 
+    // Called when timer ends, transitions players to VotingScene
     public void OnAnswerTimerEnd() {
         PhotonNetwork.LoadLevel("VotingScene");
     }
     #endregion
 
     #region Photon Events-related methods
+
+    private void setSubmitCustomProperties(string answerText) {
+        // Add the submitted answer as a CustomProperty of the player
+        myCustomProperties["answer"] = answerText;
+
+        // Add usage of OTB card as a CustomProperty of the player
+        myCustomProperties["usedOTB"] = false;
+        if (otbController.getHasOTB()) {
+            myCustomProperties["usedOTB"] = true;
+        }
+
+        PhotonNetwork.LocalPlayer.SetCustomProperties(myCustomProperties);
+    }
+
     private void OnEnable() {
         PhotonNetwork.NetworkingClient.EventReceived += NetworkingClient_EventReceived;
     }
