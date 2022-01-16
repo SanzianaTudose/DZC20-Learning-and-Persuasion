@@ -2380,6 +2380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984169859}
+  - component: {fileID: 984169860}
   m_Layer: 5
   m_Name: OTBCard
   m_TagString: Untagged
@@ -2403,6 +2404,25 @@ Transform:
   m_Father: {fileID: 606153013}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &984169860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984169858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e10606687df4e442aa42ebfdec262c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OTBCardDeck:
+  - {fileID: 11400000, guid: c3a5186fea6e88649b835cded9e35bc9, type: 2}
+  - {fileID: 11400000, guid: 0f8585d860eaaf448b0cd8b2527166f3, type: 2}
+  - {fileID: 11400000, guid: df194b97db0f6844885566efc1eb2de3, type: 2}
+  cardFront: {fileID: 677643079}
+  wordText: {fileID: 917880396}
+  cardBack: {fileID: 1173468246}
 --- !u!1 &1009384872
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,6 +2577,7 @@ GameObject:
   - component: {fileID: 1173468250}
   - component: {fileID: 1173468249}
   - component: {fileID: 1173468248}
+  - component: {fileID: 1173468251}
   m_Layer: 5
   m_Name: OTBCardBack
   m_TagString: Untagged
@@ -2637,6 +2658,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173468246}
   m_CullTransparentMesh: 1
+--- !u!114 &1173468251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173468246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 984169860}
+          m_TargetAssemblyTypeName: OTBCardController, Assembly-CSharp
+          m_MethodName: OnBackClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1173880362
 GameObject:
   m_ObjectHideFlags: 0
