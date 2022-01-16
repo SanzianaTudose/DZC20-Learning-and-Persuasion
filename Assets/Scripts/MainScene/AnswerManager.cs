@@ -20,6 +20,7 @@ public class AnswerManager : MonoBehaviour {
     // UI fields
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TMP_Text submitButtonText;
+    [SerializeField] private DisplayMessage displayMessage;
 
     private void Start()
     {
@@ -30,10 +31,14 @@ public class AnswerManager : MonoBehaviour {
     // Called by the Submit button on AnswerBox
     public void OnClickSubmit() {
         if (!cardUsageManager.CanSubmit()) {
-            // TODO: give visual feedback to the player
-            print("you dont have enough cards to submit");
+            if (otbController.getHasOTB())
+                displayMessage.DisplayNewMessage("Answer NOT submitted! You must use the Out of the Box card and at least 3 Expertise cards.");
+            else
+                displayMessage.DisplayNewMessage("Answer NOT submitted! You must use at least 3 Expertise cards.");
             return;
         }
+
+        displayMessage.DisplayNewMessage("Answer submitted! You can re-submit if you want.");
 
         hasSubmitted = true;
 
