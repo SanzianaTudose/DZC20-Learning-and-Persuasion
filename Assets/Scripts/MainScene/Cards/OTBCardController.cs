@@ -14,7 +14,7 @@ public class OTBCardController : MonoBehaviour
     [SerializeField] private GameObject cardBack;
 
     private bool hasOTB = false;
-    private string OTBword = null;
+    private string otbWord = null;
 
     public bool getHasOTB() {
         return hasOTB;
@@ -22,7 +22,7 @@ public class OTBCardController : MonoBehaviour
 
     // If OTB has been drawn, returns the word on the OTB otherwise returns null
     public string getOTBWord() {
-        return OTBword;
+        return otbWord;
     }
 
     // Called when Player clicks to draw an OTB Card
@@ -30,8 +30,10 @@ public class OTBCardController : MonoBehaviour
         cardFront.SetActive(true);
         cardBack.SetActive(false);
 
+        hasOTB = true;
+
         // Choose random word from the OTB Decks
-        OTBword = OTBCardDeck[Random.Range(0, OTBCardDeck.Count)].word;
-        wordText.SetText(OTBword);
+        otbWord = OTBCardDeck[Random.Range(0, OTBCardDeck.Count)].word;
+        wordText.SetText(otbWord);
     }
 }

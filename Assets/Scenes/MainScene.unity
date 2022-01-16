@@ -1269,7 +1269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answerManager: {fileID: 1345432372}
+  otbController: {fileID: 984169860}
   cardsNeeded: 3
+  otbCardObject: {fileID: 677643079}
 --- !u!4 &606153013
 Transform:
   m_ObjectHideFlags: 0
@@ -3141,7 +3143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1345308116}
   almostDoneColor: {r: 0.9150943, g: 0.19424175, b: 0.19424175, a: 1}
-  totalSeconds: 10
+  totalSeconds: 30
   OnStartFlash:
     m_PersistentCalls:
       m_Calls:
