@@ -12,6 +12,8 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
     private ExitGames.Client.Photon.Hashtable roomProps;
     private int currentRound;
 
+    public DisplayMessage displayMessage;
+
     private void Start()
     {
         // Declare default values
@@ -37,6 +39,7 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
         if (currentRound == 3)
         {
             Debug.Log("Game Ended");
+            displayMessage.DisplayNewMessage("Game Ended!");
             return;
         }
 

@@ -11,6 +11,7 @@ public class Message : MonoBehaviour
     private void Start()
     {
         transform.localScale = Vector3.one;
+        transform.localPosition = Vector3.zero;
     }
 
     public void CloseMessage()
