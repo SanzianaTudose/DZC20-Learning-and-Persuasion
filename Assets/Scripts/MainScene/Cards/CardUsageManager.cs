@@ -6,31 +6,50 @@ using UnityEngine.UI;
 // Manages card highlight based on words in the answer text
 public class CardUsageManager : MonoBehaviour {
 
-    [SerializeField]
-    private AnswerManager answerManager;
+    [SerializeField] private AnswerManager answerManager;
+    [SerializeField] private OTBCardController otbController;
     [Header("Gameplay values")]
-    [SerializeField]
-    private int cardsNeeded = 3;
+    [SerializeField] private int cardsNeeded = 3;
+
+    [Header("UI Fields")]
+    [SerializeField] private GameObject otbCardObject;
 
     // Holds pair of <cardWord, cardObject> for easy access
     private Dictionary<string, GameObject> cardDict;
     private int cardsUsed = 0;
+    private bool hasUsedOTB = false;
 
     public bool CanSubmit() {
-        return (cardsUsed >= cardsNeeded);
+        return (cardsUsed >= cardsNeeded) && hasUsedOTB;
     }
 
     private void Update() {
+        string answerText = answerManager.GetAnswerText().ToLower();
+
         // Highlight cards and compute new cardsUsed
         int newCardsUsed = 0;
         foreach (string word in cardDict.Keys) {
-            if (answerManager.GetAnswerText().ToLower().Contains(word.ToLower())) {
+            if (answerText.Contains(word.ToLower())) {
                 newCardsUsed++;
                 ToggleCardHighlight(cardDict[word], true);
             } else
                 ToggleCardHighlight(cardDict[word], false);
         }
         cardsUsed = newCardsUsed;
+
+        // Handle OTB usage
+        hasUsedOTB = true;
+        if (otbController.getHasOTB()) {
+            string otbWord = otbController.getOTBWord();
+            
+            if (answerText.Contains(otbWord.ToLower())) {
+                hasUsedOTB = true;
+                ToggleCardHighlight(otbCardObject, true);
+            } else {
+                hasUsedOTB = false;
+                ToggleCardHighlight(otbCardObject, false);
+            }
+        }
     }
 
     // Called after distributing the cards
