@@ -29,7 +29,7 @@ public class VotesCounter : MonoBehaviourPunCallbacks
 
 
             // Save the points that the player should get
-            int newPoints = GetNumberOfPoints(votes, round);
+            int newPoints = GetNumberOfPoints(votes, round, submittedBy);
             ansObjs[i].pointsThisRound = newPoints;
 
             // Add the points to the current points of the player
@@ -63,15 +63,23 @@ public class VotesCounter : MonoBehaviourPunCallbacks
         _player.SetCustomProperties(pointsProps);
     }
 
-    private int GetNumberOfPoints(int numberOfVotes, int multiplier)
+    private int GetNumberOfPoints(int numberOfVotes, int multiplier, Player _submittedBy)
     {
-        int result = 0;
+        if (numberOfVotes < 0) numberOfVotes = 0;
         if (multiplier < 1) multiplier = 1;
 
-        if (numberOfVotes == 3) result = 1000;
-        if (numberOfVotes == 2) result = 500;
-        if (numberOfVotes == 1) result = 250;
+        int result = 250 * numberOfVotes;
 
-        return result * multiplier;
+        // Get appropriate amount of points whether the player used the OTB card
+        int pointsForOTB = 0;
+        if (_submittedBy.CustomProperties.ContainsKey("usedOTB"))
+        {
+            if ((bool)_submittedBy.CustomProperties["usedOTB"])
+            {
+                pointsForOTB = 100;
+            }
+        }
+
+        return result * multiplier + pointsForOTB * numberOfVotes;
     }
 }
