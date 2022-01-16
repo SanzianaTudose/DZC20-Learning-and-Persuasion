@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Card", menuName = "Cards")]
+[CreateAssetMenu(fileName = "New Card", menuName = "Card")]
 public class Card : ScriptableObject {
     public enum ExpertiseAreas : byte
     {
@@ -10,7 +10,8 @@ public class Card : ScriptableObject {
         CreativityAndAesthetics,
         MathDataAndComputing, 
         TechnologyAndRealization,
-        UserAndSociety
+        UserAndSociety,
+        OutOfTheBox,
     }
 
     public string word;
