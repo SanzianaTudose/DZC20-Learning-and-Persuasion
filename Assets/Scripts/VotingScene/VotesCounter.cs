@@ -32,8 +32,11 @@ public class VotesCounter : MonoBehaviourPunCallbacks
             int newPoints = GetNumberOfPoints(votes, round, submittedBy);
             ansObjs[i].pointsThisRound = newPoints;
 
-            // Add the points to the current points of the player
-            AddPointsToPlayer(submittedBy, newPoints);
+            if (submittedBy == PhotonNetwork.LocalPlayer)
+            {
+                // Add the points to the current points of the player
+                AddPointsToPlayer(submittedBy, newPoints);
+            }
 
             newPointsArray[i] = newPoints;
         }
