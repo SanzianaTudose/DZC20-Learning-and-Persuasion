@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Linq;
 
 public class LeaderboardDisplay : MonoBehaviourPunCallbacks
 {
@@ -14,8 +15,14 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
 
     public DisplayMessage displayMessage;
 
+    public DisplayPlayerPoints displayPlayerPointsPrefab;
+    private Dictionary<int, DisplayPlayerPoints> allPlayerPoints;
+    public GameObject playerPointsParent;
+
     private void Start()
     {
+        DisplayPlayerPointsObjects();
+
         // Declare default values
         roomProps = new ExitGames.Client.Photon.Hashtable();
         currentRound = 1;
@@ -28,10 +35,24 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
 
         // Display the current round
         roundText.text = "Round " + currentRound.ToString();
+    }
 
-        // Change the "currentRound" room custom property
-        roomProps.Add("currentRound", currentRound + 1);
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProps);
+    private void DisplayPlayerPointsObjects()
+    {
+        allPlayerPoints = new Dictionary<int, DisplayPlayerPoints>();
+
+        foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
+        {
+            DisplayPlayerPoints pointsObj = GameObject.Instantiate(displayPlayerPointsPrefab, Vector3.zero, Quaternion.identity, playerPointsParent.transform);
+            pointsObj.SetUpPlayerPoints(player.Value);
+            allPlayerPoints.Add(pointsObj.GetPlayerPoints(), pointsObj);
+        }
+
+        foreach (KeyValuePair<int, DisplayPlayerPoints> pointsObj in allPlayerPoints.OrderByDescending(key => key.Key))
+        {
+            pointsObj.Value.transform.SetParent(transform);
+        }
+        
     }
 
     public void StartNextRound()
@@ -42,6 +63,10 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
             displayMessage.DisplayNewMessage("Game Ended!");
             return;
         }
+
+        // Change the "currentRound" room custom property
+        roomProps.Add("currentRound", currentRound + 1);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProps);
 
         PhotonNetwork.LoadLevel("SelectSquad");
     }
