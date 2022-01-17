@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using TMPro;
 
-public class QuestionMarkController : MonoBehaviour {
+public class QuestionMarkController : MonoBehaviourPunCallbacks {
     [Header("UI Fields")]
     [SerializeField] private TMP_Text summaryText;
 
