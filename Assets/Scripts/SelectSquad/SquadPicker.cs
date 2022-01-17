@@ -144,6 +144,11 @@ public class SquadPicker : MonoBehaviourPunCallbacks
 
             SetSquadsVotingStatus();
         }
+
+        if (propertiesThatChanged.ContainsKey("pickedSquad"))
+        {
+            caseIntroController.startCaseIntro((string)PhotonNetwork.CurrentRoom.CustomProperties["pickedSquad"]);
+        }
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -215,8 +220,12 @@ public class SquadPicker : MonoBehaviourPunCallbacks
 
     // Method called when timer ends, counts votes and starts Case Introduction
     public void OnVoteEnd() {
-        string pickedSquad = CountVotes();
-        caseIntroController.startCaseIntro(pickedSquad);
+        if (PhotonNetwork.LocalPlayer.IsMasterClient)
+        {
+            ExitGames.Client.Photon.Hashtable roomProps = new ExitGames.Client.Photon.Hashtable();
+            roomProps.Add("pickedSquad", CountVotes());
+            PhotonNetwork.CurrentRoom.SetCustomProperties(roomProps);
+        }
     }
 
     // Function for debugging
