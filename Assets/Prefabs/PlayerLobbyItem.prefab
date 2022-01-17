@@ -569,9 +569,10 @@ MonoBehaviour:
   rightArrowButton: {fileID: 4471742596026808031}
   PlayerAvatar: {fileID: 4290084767585357278}
   avatars:
-  - {fileID: 21300000, guid: b6f348b1ccf4220429adf69e1453970c, type: 3}
-  - {fileID: 21300000, guid: 5d397bd309ff1f1449ace92d9cac3a00, type: 3}
-  - {fileID: 21300000, guid: 18c95bfb52d0699479b78e9c00d25fc5, type: 3}
+  - {fileID: 21300000, guid: c5571d1bcbbee1b4aa2db4cecdf84f83, type: 3}
+  - {fileID: 21300000, guid: 3c2184913bd6d1d4b95e4c5086367933, type: 3}
+  - {fileID: 21300000, guid: 9a58c7d6795744a449ffb2fe0faa6fb5, type: 3}
+  - {fileID: 21300000, guid: 61839f8428a66104a8c397d24ea2ef22, type: 3}
 --- !u!222 &4083545050019153844
 CanvasRenderer:
   m_ObjectHideFlags: 0
