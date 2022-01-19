@@ -25,7 +25,15 @@ public class DisplayPlayerPoints : MonoBehaviourPunCallbacks
 
     public void SetUpPlayerPoints(Player player)
     {
-        points = (int)player.CustomProperties["points"];
+        if (player.CustomProperties.ContainsKey("points"))
+        {
+            points = (int)player.CustomProperties["points"];
+        }
+        else
+        {
+            points = 0;
+        }
+
         pointsText.text = points.ToString();
 
         username.text = player.NickName;

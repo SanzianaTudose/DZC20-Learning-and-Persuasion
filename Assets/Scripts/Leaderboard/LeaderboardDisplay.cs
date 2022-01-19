@@ -51,7 +51,8 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
         {
             DisplayPlayerPoints pointsObj = GameObject.Instantiate(displayPlayerPointsPrefab, Vector3.zero, Quaternion.identity, playerPointsParent.transform);
             pointsObj.SetUpPlayerPoints(player.Value);
-            allPlayerPoints.Add(pointsObj.GetPlayerPoints(), pointsObj);
+            int key = pointsObj.GetPlayerPoints() + player.Key;
+            allPlayerPoints.Add(key, pointsObj);
         }
 
         foreach (KeyValuePair<int, DisplayPlayerPoints> pointsObj in allPlayerPoints.OrderByDescending(key => key.Key))
