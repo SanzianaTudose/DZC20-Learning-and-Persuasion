@@ -8,6 +8,8 @@ using TMPro;
 
 public class VotingVotesTracker : MonoBehaviourPunCallbacks
 {
+    public DisplayMessage displayMessage;
+
     // All currently possible squads to vote for
     private Dictionary<string, Answer> answers;
 
