@@ -644,7 +644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &322360831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,7 +781,7 @@ MonoBehaviour:
   squadVoteCanvas: {fileID: 137991462}
   squadText: {fileID: 1523286354}
   caseText: {fileID: 718518032}
-  continueButton: {fileID: 0}
+  continueButton: {fileID: 1874901732}
   allCases:
   - {fileID: 11400000, guid: 1b068ff7566b54f4fbae76ccd323e318, type: 2}
   - {fileID: 11400000, guid: 0d1fd32cbaf47314cb08d2d473e6b897, type: 2}
@@ -2734,6 +2734,11 @@ PrefabInstance:
 --- !u!224 &1874901731 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7164732522279853343, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
+  m_PrefabInstance: {fileID: 1874901730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1874901732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7164732522279853342, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
   m_PrefabInstance: {fileID: 1874901730}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1933039573
