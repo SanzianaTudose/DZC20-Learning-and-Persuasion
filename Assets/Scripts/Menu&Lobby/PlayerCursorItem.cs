@@ -12,11 +12,6 @@ public class PlayerCursorItem : MonoBehaviourPunCallbacks
     public Sprite[] cursors;
     public Sprite transparent;
 
-    // For debugging
-    private Player player;
-    public TMP_Text playerName;
-    //
-
     private Canvas myCanvas;
     PhotonView view;
 
@@ -44,9 +39,6 @@ public class PlayerCursorItem : MonoBehaviourPunCallbacks
         {
             PlayerCursor.sprite = cursors[3];
         }
-
-        // Set name above cursor 
-        playerName.text = view.Owner.NickName + " c: " + view.Owner.CustomProperties["cursorIndex"] + " a: " + view.Owner.CustomProperties["playerAvatar"];
 
         // Set cursor object parent and scale
         transform.SetParent(myCanvas.transform);
