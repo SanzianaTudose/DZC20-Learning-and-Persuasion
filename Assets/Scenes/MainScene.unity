@@ -1484,7 +1484,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4284587983
-  m_fontColor: {r: 0.8117647, g: 0.62352943, b: 0.38039216, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1904,7 +1904,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984169858}
-  m_LocalRotation: {x: -0, y: -0, z: 0.07380512, w: 0.9972727}
+  m_LocalRotation: {x: 0, y: 0, z: 0.06104851, w: 0.99813485}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_Children:
@@ -1912,7 +1912,7 @@ RectTransform:
   - {fileID: 1173468247}
   m_Father: {fileID: 606153013}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.465}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 7}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 231.2, y: -1.1}
@@ -2847,8 +2847,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Squad Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a495bb41b641dd4aab379c7285bf2e5, type: 2}
-  m_sharedMaterial: {fileID: 1728151163902996185, guid: 8a495bb41b641dd4aab379c7285bf2e5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f65b994b4606efe458a65ccf028f7e10, type: 2}
+  m_sharedMaterial: {fileID: -7100987932060588694, guid: f65b994b4606efe458a65ccf028f7e10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2872,7 +2872,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10.8
+  m_fontSize: 11.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
