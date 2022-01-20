@@ -435,7 +435,43 @@ MonoBehaviour:
   totalSeconds: 10
   OnStartFlash:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 594650089}
+        m_TargetAssemblyTypeName: SquadVoting, Assembly-CSharp
+        m_MethodName: SetTooltipTimerFlashes
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 141136264}
+        m_TargetAssemblyTypeName: SquadVoting, Assembly-CSharp
+        m_MethodName: SetTooltipTimerFlashes
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1933039574}
+        m_TargetAssemblyTypeName: SquadVoting, Assembly-CSharp
+        m_MethodName: SetTooltipTimerFlashes
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnTimerEnd:
     m_PersistentCalls:
       m_Calls:
@@ -1016,6 +1052,82 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 737253548}
     m_Modifications:
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 594650089}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 141136264}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1933039574}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTooltipTimerFlashes
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetTooltipTimerFlashes
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetTooltipTimerFlashes
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SquadVoting, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: SquadVoting, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6196603363378147834, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
       propertyPath: m_Name
       value: SquadChoice

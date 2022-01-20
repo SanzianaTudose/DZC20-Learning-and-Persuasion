@@ -11,6 +11,7 @@ public class SquadVoting : MonoBehaviourPunCallbacks
     // Prefab to be created when voting and its intended parent
     public SquadVote playerVotePrefab;
     public Transform playerVoteParent; // SquadVotes
+    public SquadTooltip tooltip;
 
     // Keeps track of object created when voting
     private GameObject myVote;
@@ -102,5 +103,10 @@ public class SquadVoting : MonoBehaviourPunCallbacks
     public void SetMyIHaveVoted(bool value)
     {
         iHaveVoted = value;
+    }
+
+    public void SetTooltipTimerFlashes(bool value)
+    {
+        tooltip.SetTimerFlashes(value);
     }
 }
