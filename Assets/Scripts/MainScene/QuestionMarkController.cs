@@ -7,13 +7,19 @@ using TMPro;
 public class QuestionMarkController : MonoBehaviourPunCallbacks {
     [Header("UI Fields")]
     [SerializeField] private TMP_Text summaryText;
+    [SerializeField] private TMP_Text boardSquadText;
+
+    string pickedSquad, pickedCase;
+
+    public void Start() {
+        ExitGames.Client.Photon.Hashtable roomProperties = PhotonNetwork.CurrentRoom.CustomProperties;
+        pickedSquad = (string)roomProperties["pickedSquad"];
+        pickedCase = (string)roomProperties["pickedCase"];
+
+        boardSquadText.text = pickedSquad;
+    }
 
     public void OnClickQuestionMark() {
-       ExitGames.Client.Photon.Hashtable roomProperties = PhotonNetwork.CurrentRoom.CustomProperties;
-
-        string pickedSquad = (string) roomProperties["pickedSquad"];
-        string pickedCase = (string) roomProperties["pickedCase"];
-
-        summaryText.SetText("Case summary for squad " + pickedSquad + ":\n\n" + pickedCase);
+        summaryText.SetText("Case summary:\n" + pickedCase);
     }
 }
