@@ -6,14 +6,16 @@ using TMPro;
 
 public class SquadTooltip : MonoBehaviour, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler
 {
-    public TMP_Text toolTipText;
-    public GameObject toHide;
     public TMP_Text squadName;
+    private string squad;
+    private bool timerFlashes;
 
     private Dictionary<string, string> squadTooltips;
 
     private void Start()
     {
+        squad = "";
+
         squadTooltips = new Dictionary<string, string>();
         squadTooltips.Add("Squad Choice", 
             "Default Squad Choice for debugging purposes.");
@@ -23,7 +25,7 @@ public class SquadTooltip : MonoBehaviour, UnityEngine.EventSystems.IPointerEnte
             "for marginalized and ageing populations, and for digital wellbeing.");
 
         squadTooltips.Add("Games And Play",
-            "This squads let's you leverage playful technologies, game design, and game data," +
+            "This squad let's you leverage playful technologies, game design, and game data," +
             "to facilitate societal change in a range of application areas.");
 
         squadTooltips.Add("Vitality", 
@@ -56,19 +58,21 @@ public class SquadTooltip : MonoBehaviour, UnityEngine.EventSystems.IPointerEnte
 
     public void ShowTooltip()
     {
-        if (!squadTooltips.ContainsKey(squadName.text)) return;
+        if (timerFlashes) return;
 
-        toHide.SetActive(false);
-        toolTipText.gameObject.SetActive(true);
-        toolTipText.text = squadTooltips[squadName.text];
+        squad = squadName.text;
+
+        if (!squadTooltips.ContainsKey(squad)) return;
+
+        squadName.text = squadTooltips[squad];
     }
 
     public void HideTooltip()
     {
-        if (!squadTooltips.ContainsKey(squadName.text)) return;
+        if (squad == "") return;
+        if (!squadTooltips.ContainsKey(squad)) return;
 
-        toHide.SetActive(true);
-        toolTipText.gameObject.SetActive(false);
+        squadName.text = squad;
     }
 
     public void OnPointerEnter(PointerEventData data)
@@ -79,6 +83,12 @@ public class SquadTooltip : MonoBehaviour, UnityEngine.EventSystems.IPointerEnte
     public void OnPointerExit(PointerEventData data)
     {
         HideTooltip();
+    }
+
+    public void SetTimerFlashes(bool value)
+    {
+        this.timerFlashes = value;
+        if (value) HideTooltip();
     }
 
 }
