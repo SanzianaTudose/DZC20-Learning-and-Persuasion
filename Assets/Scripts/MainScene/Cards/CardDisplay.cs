@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Text.RegularExpressions;
 
 public class CardDisplay : MonoBehaviour {
     private Card card;
@@ -23,6 +24,10 @@ public class CardDisplay : MonoBehaviour {
 
     private void UpdateUI() {
         wordText.text = card.word;
-        expertiseText.text = card.expertiseArea.ToString();
+        
+        string expertiseString = card.expertiseArea.ToString();
+        expertiseString = Regex.Replace(expertiseString, "(\\B[A-Z])", " $1");
+        
+        expertiseText.text = expertiseString;
     }
 }
