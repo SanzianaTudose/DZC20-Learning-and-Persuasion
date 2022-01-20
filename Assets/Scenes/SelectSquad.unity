@@ -432,7 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 279026140}
   almostDoneColor: {r: 0.9150943, g: 0.19424175, b: 0.19424175, a: 1}
-  totalSeconds: 10
+  totalSeconds: 600
   OnStartFlash:
     m_PersistentCalls:
       m_Calls:
