@@ -23,7 +23,6 @@ public class Answer : MonoBehaviourPunCallbacks
     public TMP_Text backSideUserName;
     public Image backSideAvatar;
 
-
     // Answer text and vote tracker to give correct parent to vote object
     public TMP_Text answerText;
     private Player submittedBy;
@@ -57,7 +56,11 @@ public class Answer : MonoBehaviourPunCallbacks
     public void AddOrRemoveVote()
     {
         // You cannot vote for yourself
-        if (submittedBy == PhotonNetwork.LocalPlayer) return;
+        if (submittedBy == PhotonNetwork.LocalPlayer)
+        {
+            votesTracker.displayMessage.DisplayNewMessage("You cannot vote for yourself!");
+            return;
+        }
 
         if (iHaveVoted)
         {
