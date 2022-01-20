@@ -37,9 +37,11 @@ public class OTBCardController : MonoBehaviour
 
     private IEnumerator RotateOTBCard()
     {
+        float rotationZ = transform.eulerAngles.z;
+        float rotationX = transform.localRotation.x;
         for (float i = 0f; i <= 180f; i += 10f)
         {
-            transform.rotation = Quaternion.Euler(0f, i, 0f);
+            transform.rotation = Quaternion.Euler(rotationX, i, rotationZ);
 
             if (i == 90f)
             {
@@ -48,7 +50,7 @@ public class OTBCardController : MonoBehaviour
             }
             if (i > 90f)
             {
-                cardFront.transform.rotation = Quaternion.Euler(0f, -1f * (180 - i), 0f);
+                cardFront.transform.rotation = Quaternion.Euler(rotationX, -1f * (180 - i), rotationZ);
             }
 
             yield return new WaitForSeconds(0.05f);

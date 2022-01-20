@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f25407fd24c9c949b4c361623ebe05e, type: 3}
   m_Name: Games&Play_1
   m_EditorClassIdentifier: 
-  caseText: 'How to cause more inclusion within a group? Your task is to create a
-    short game that is playable by everyone in your class, that will help create
-    more inclusion among this group that plays the game. '
+  caseText: Not everyone has the same level of social skills, some people feel lonely
+    because they do not know how to connect. How can you cause more inclusion within
+    a group? Your task is to create a short game that is playable by everyone in
+    your class, that will help create more inclusion among this group that plays
+    the game, and help people feel less lonely.
   squad: 1
