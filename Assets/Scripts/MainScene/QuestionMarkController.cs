@@ -20,6 +20,6 @@ public class QuestionMarkController : MonoBehaviourPunCallbacks {
     }
 
     public void OnClickQuestionMark() {
-        summaryText.SetText("Case summary:\n" + pickedCase);
+        summaryText.SetText("Case summary: " + pickedCase);
     }
 }
