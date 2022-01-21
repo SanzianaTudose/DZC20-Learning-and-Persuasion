@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca757dfeb78226498fc5a6d2f854db9, type: 3}
   m_Name: US_community
   m_EditorClassIdentifier: 
-  word: 'community '
+  word: community
   expertiseArea: 4

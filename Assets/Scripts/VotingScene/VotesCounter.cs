@@ -32,15 +32,13 @@ public class VotesCounter : MonoBehaviourPunCallbacks
             int newPoints = GetNumberOfPoints(votes, round, submittedBy);
             ansObjs[i].pointsThisRound = newPoints;
 
-            if (submittedBy == PhotonNetwork.LocalPlayer)
+            if (PhotonNetwork.LocalPlayer.IsMasterClient)
             {
                 // Add the points to the current points of the player
                 AddPointsToPlayer(submittedBy, newPoints);
             }
-
             newPointsArray[i] = newPoints;
         }
-
         transitionObj.StartRotatingAnswers();
     }
 
@@ -83,6 +81,6 @@ public class VotesCounter : MonoBehaviourPunCallbacks
             }
         }
 
-        return result * multiplier + pointsForOTB * numberOfVotes;
+        return result * multiplier + pointsForOTB;
     }
 }
