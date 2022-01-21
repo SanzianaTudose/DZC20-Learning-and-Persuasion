@@ -83,6 +83,6 @@ public class VotesCounter : MonoBehaviourPunCallbacks
             }
         }
 
-        return result * multiplier + pointsForOTB * numberOfVotes;
+        return result * multiplier + pointsForOTB;
     }
 }
