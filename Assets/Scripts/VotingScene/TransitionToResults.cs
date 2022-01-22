@@ -11,10 +11,12 @@ public class TransitionToResults : MonoBehaviourPunCallbacks
 {
     public AnswerDisplayController answersContainer;
     private List<Answer> answers;
+    private AudioSource source;
 
     void Start()
     {
         answers = new List<Answer>();
+        source = gameObject.GetComponent<AudioSource>();
     }
 
     public void StartRotatingAnswers()
@@ -39,6 +41,8 @@ public class TransitionToResults : MonoBehaviourPunCallbacks
 
     private IEnumerator RotateAnswer(Answer currentAnswer)
     {
+        source.PlayOneShot(source.clip);
+
         int score = currentAnswer.pointsThisRound;
 
         for (float i = 0f; i <= 180f; i += 10f)
