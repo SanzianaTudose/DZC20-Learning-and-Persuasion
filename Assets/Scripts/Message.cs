@@ -16,6 +16,12 @@ public class Message : MonoBehaviour
 
     public void CloseMessage()
     {
+        StartCoroutine(WaitForClosing());
+    }
+
+    private IEnumerator WaitForClosing()
+    {
+        yield return new WaitForSeconds(0.05f);
         GameObject.Destroy(this.gameObject);
     }
 
