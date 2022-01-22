@@ -17,15 +17,24 @@ public class TimerController : MonoBehaviour {
 
     private float timeRemaining;
     private bool timerRunning = true;
-    
+
+    private AudioSource source;
+    bool playTimerSoundOnce;
+
     void Start() {
         timeRemaining = totalSeconds;
+        source = gameObject.GetComponent<AudioSource>();
+        playTimerSoundOnce = false;
     }
 
     // Update is called once per frame
     void Update() {
         if (timerRunning) {
-            if (timeRemaining > 0) {
+            if (timeRemaining < 14.2f && !playTimerSoundOnce)
+            {
+                source.PlayOneShot(source.clip);
+                playTimerSoundOnce = true;
+            } else if (timeRemaining > 0) {
                 timeRemaining -= Time.deltaTime;
                 DisplayTime();
             } else { 
