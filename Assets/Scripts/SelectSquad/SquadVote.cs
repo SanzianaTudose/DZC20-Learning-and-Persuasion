@@ -13,8 +13,14 @@ public class SquadVote : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
     private PhotonView view;
     private int myAvatarIndex = 0;
 
+    private AudioSource source;
+
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {
+        // Get AudioSource component and play voting sound
+        source = gameObject.GetComponent<AudioSource>();
+        source.PlayOneShot(source.clip);
+
         // Get the squad that this vote is for
         object[] instantiationData = info.photonView.InstantiationData;
         string squadName = (string)instantiationData[0];
