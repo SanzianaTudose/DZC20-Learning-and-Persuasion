@@ -2841,7 +2841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myText: {fileID: 1614841016}
-  speed: 15.8
+  speed: 15.9
   textSelectionColor: {r: 1, g: 0.6896101, b: 0, a: 1}
 --- !u!1 &1628412342
 GameObject:
