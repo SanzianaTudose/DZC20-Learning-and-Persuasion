@@ -17,7 +17,7 @@ public class AutoScrollingText : MonoBehaviour
 
     void Update()
     {
-        if (myText.transform.localPosition.y < 1455f)
+        if (myText.transform.localPosition.y < 1500f)
         {
             textPosition = new Vector3(textPosition.x, textPosition.y + 0.0001f * speed, textPosition.z);
             myText.transform.position = textPosition;

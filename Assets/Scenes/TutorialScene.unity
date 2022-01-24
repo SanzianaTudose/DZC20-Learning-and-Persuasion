@@ -2741,8 +2741,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\n\n\nHi! I'm Professor Spek, and I am looking for my new sidekick hero!
-    \n\nYou will now be going to Hero University: Industrial Design! And graduate
+  m_text: "\n\n\n\n\nHi! I'm Professor Spek, and I am looking for my new sidekick
+    hero! \n\nYou will now be going to Hero University: Industrial Design! And graduate
     as a newbie hero by completing 3 projects. We want to make the world a better
     place and we try to help people by designing products or services and researching
     ways to help people and the planet. \n\nYou will be joining 3 squads which are
