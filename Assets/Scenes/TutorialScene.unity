@@ -800,7 +800,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525415712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -395, y: 103, z: 0}
+  m_LocalPosition: {x: -389, y: 107, z: 0}
   m_LocalScale: {x: 0.6999999, y: 0.6999999, z: 0.9999157}
   m_Children:
   - {fileID: 1559207785}
@@ -1068,7 +1068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &804085083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,7 +1532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522279853340, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522279853340, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_Colors.m_DisabledColor.a
@@ -1561,18 +1561,18 @@ PrefabInstance:
     - target: {fileID: 7164732522279853340, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1019964195}
     - target: {fileID: 7164732522279853340, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522279853340, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickContinue
+      value: OnClickReady
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522279853340, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ContinueButtonController, Assembly-CSharp
+      value: ReadyButtonController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522279853340, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1580,7 +1580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522279853342, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_Name
-      value: ContinueButton
+      value: ReadyButton
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522279853343, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_Pivot.x
@@ -1620,11 +1620,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522279853343, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522279853343, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522279853343, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_LocalScale.z
@@ -1688,11 +1688,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522805023857, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_text
-      value: Continue
+      value: Ready
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522805023857, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_fontSize
-      value: 15
+      value: 23.05
       objectReference: {fileID: 0}
     - target: {fileID: 7164732522805023857, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
       propertyPath: m_fontSizeMin
@@ -1713,6 +1713,35 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7164732522279853343, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
   m_PrefabInstance: {fileID: 1019964192}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1019964194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7164732522279853342, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
+  m_PrefabInstance: {fileID: 1019964192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1019964195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019964194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3e34aa55fec814ea9d99bb29858de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  readyButtonText: {fileID: 1128105866}
+--- !u!114 &1128105866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7164732522805023857, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
+  m_PrefabInstance: {fileID: 1019964192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1171552161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,7 +1894,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: You can also choose to draw an Out of the Box card! Once you draw this
     card, you MUST use it in your answer to be able to submit. This card gives you
-    extra points (even if you do not win the round). Try clicking the card now.
+    extra bananas (even if you do not win the round). Try clicking the card now.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f65b994b4606efe458a65ccf028f7e10, type: 2}
   m_sharedMaterial: {fileID: -7100987932060588694, guid: f65b994b4606efe458a65ccf028f7e10, type: 2}
@@ -2751,7 +2780,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.010009766, y: -347.15482}
-  m_SizeDelta: {x: -0.02, y: 695.0506}
+  m_SizeDelta: {x: -0.02, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1614841015
 MonoBehaviour:
@@ -3452,8 +3481,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 534.1, y: 36}
-  m_SizeDelta: {x: 481.65, y: 82.61}
+  m_AnchoredPosition: {x: 526.27954, y: 36}
+  m_SizeDelta: {x: 497.29, y: 82.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1964341342
 MonoBehaviour:
@@ -3595,7 +3624,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -705, y: 0}
-  m_SizeDelta: {x: 0, y: 50}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2019274382
 MonoBehaviour:
@@ -3781,7 +3810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2032913214
 MonoBehaviour:
   m_ObjectHideFlags: 0
