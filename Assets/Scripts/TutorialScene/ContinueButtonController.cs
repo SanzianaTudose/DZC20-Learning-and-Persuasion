@@ -9,6 +9,8 @@ public class ContinueButtonController : MonoBehaviour {
     [SerializeField] private GameObject gameCanvas;
     private Button continueButton;
 
+    public AudioSource backgroundMusic;
+
     void Start() {
         continueButton = GetComponent<Button>();
         continueButton.interactable = false;
@@ -26,6 +28,7 @@ public class ContinueButtonController : MonoBehaviour {
 
     public void OnClickContinue() {
         // TODO: maybe add a nice transition
+        backgroundMusic.PlayOneShot(backgroundMusic.clip);
         gameCanvas.SetActive(true);
         idCanvas.SetActive(false);
     }
