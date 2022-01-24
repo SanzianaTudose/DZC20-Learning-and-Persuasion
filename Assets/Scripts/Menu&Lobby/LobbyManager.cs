@@ -133,6 +133,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickPlayButton()
     {
-        PhotonNetwork.LoadLevel("TutorialScene");
+        PhotonNetwork.LoadLevel("SelectSquad");
+        Destroy(FindObjectsOfType<DontDestroyAudio>()[0].gameObject);
     }
 }

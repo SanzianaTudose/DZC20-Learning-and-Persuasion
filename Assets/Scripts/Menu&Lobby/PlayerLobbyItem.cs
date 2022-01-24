@@ -10,6 +10,7 @@ using TMPro;
 public class PlayerLobbyItem : MonoBehaviourPunCallbacks
 {
     public TMP_Text playerName;
+    private AudioSource source;
 
     public Color highlightColor;
     public GameObject leftArrowButton;
@@ -20,6 +21,11 @@ public class PlayerLobbyItem : MonoBehaviourPunCallbacks
     public Sprite[] avatars;
 
     Player player;
+
+    private void Awake()
+    {
+        source = gameObject.GetComponent<AudioSource>();
+    }
 
     public void SetPlayerInfo(Player _player)
     {
@@ -38,6 +44,8 @@ public class PlayerLobbyItem : MonoBehaviourPunCallbacks
 
     public void OnClickLeftArrow()
     {
+        source.PlayOneShot(source.clip);
+
         if ((int)playerProperties["playerAvatar"] == 0)
         {
             playerProperties["playerAvatar"] = avatars.Length - 1;
@@ -51,6 +59,8 @@ public class PlayerLobbyItem : MonoBehaviourPunCallbacks
 
     public void OnClickRightArrow()
     {
+        source.PlayOneShot(source.clip);
+
         if ((int)playerProperties["playerAvatar"] == avatars.Length - 1)
         {
             playerProperties["playerAvatar"] = 0;

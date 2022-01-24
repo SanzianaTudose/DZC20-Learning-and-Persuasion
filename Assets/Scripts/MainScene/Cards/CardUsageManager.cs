@@ -19,6 +19,8 @@ public class CardUsageManager : MonoBehaviour {
     private int cardsUsed = 0;
     private bool hasUsedOTB = false;
 
+    private AudioSource source;
+
     public bool CanSubmit() {
         return (cardsUsed >= cardsNeeded) && hasUsedOTB;
     }
@@ -67,9 +69,17 @@ public class CardUsageManager : MonoBehaviour {
     }
 
     private void ToggleCardHighlight(GameObject cardObject, bool isHighlighted) {
+        if (isHighlighted && cardObject.GetComponent<Image>().color == Color.white)
+        {
+            source = gameObject.GetComponent<AudioSource>();
+            if (!source.isPlaying) source.PlayOneShot(source.clip);
+        }
+
         Color highlightColor = Color.white;
         if (isHighlighted)
+        {
             highlightColor = Color.yellow;
+        }
 
         cardObject.GetComponent<Image>().color = highlightColor;
     }
