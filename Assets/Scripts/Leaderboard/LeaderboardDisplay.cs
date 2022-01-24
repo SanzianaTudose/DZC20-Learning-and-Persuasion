@@ -19,6 +19,10 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
     private Dictionary<int, DisplayPlayerPoints> allPlayerPoints;
     public GameObject playerPointsParent;
 
+    [SerializeField] private TMP_Text buttonText;
+    [SerializeField] private GameObject leaderboardCanvas;
+    [SerializeField] private GameObject endGameCanvas;
+
     private void Start()
     {
 
@@ -41,6 +45,11 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomProps);
 
         DisplayPlayerPointsObjects();
+
+        // Change button text to "End Game"
+        if (currentRound == 3) {
+            buttonText.text = "Finish Game";
+        }
     }
 
     private void DisplayPlayerPointsObjects()
@@ -65,8 +74,10 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
     {
         if (currentRound == 3)
         {
-            Debug.Log("Game Ended");
-            displayMessage.DisplayNewMessage("Game Ended!");
+            // Transition canvases
+            endGameCanvas.SetActive(true);
+            leaderboardCanvas.SetActive(false);
+
             return;
         }
 
