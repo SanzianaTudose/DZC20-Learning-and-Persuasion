@@ -23,9 +23,11 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject leaderboardCanvas;
     [SerializeField] private GameObject endGameCanvas;
 
+    [SerializeField]  private AudioSource cheerMusic;
+    [SerializeField]  private AudioSource backgroundMusic;
+
     private void Start()
     {
-
         // Declare default values
         roomProps = new ExitGames.Client.Photon.Hashtable();
         currentRound = 1;
@@ -75,8 +77,12 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
         if (currentRound == 3)
         {
             // Transition canvases
+            Destroy(FindObjectsOfType<DontDestroyAudio>()[0].gameObject);
             endGameCanvas.SetActive(true);
             leaderboardCanvas.SetActive(false);
+
+            cheerMusic.PlayOneShot(cheerMusic.clip);
+            backgroundMusic.PlayDelayed(8.4f);
 
             return;
         }

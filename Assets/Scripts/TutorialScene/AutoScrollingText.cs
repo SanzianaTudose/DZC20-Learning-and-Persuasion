@@ -35,7 +35,7 @@ public class AutoScrollingText : MonoBehaviour
     void Update()
     {
         // If text object is at the end stop moving it
-        if (myText.transform.localPosition.y < 1500f)
+        if (myText.transform.localPosition.y < 1460f)
         {
             // Set new position of text object
             textPosition = new Vector3(textPosition.x, textPosition.y + 0.0001f * speed, textPosition.z);
@@ -44,7 +44,7 @@ public class AutoScrollingText : MonoBehaviour
         }
 
         // If enough time has passed update selection text
-        if (lastCutTimeDelta > 0.0525 && remainingText.Length > 1)
+        if (lastCutTimeDelta > 0.0535 && remainingText.Length > 1)
         {
             // Update selection text
             selectedText += remainingText.Substring(0, 1);

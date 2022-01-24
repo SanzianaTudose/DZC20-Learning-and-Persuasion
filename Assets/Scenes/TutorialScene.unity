@@ -2750,8 +2750,8 @@ MonoBehaviour:
     focused on different directions of design. Within these squads, you will help
     people by creating an innovative solution to the problem statement. With the
     use of 5 expertise areas, you will create amazing ways of helping people and
-    will vote on the most creative and innovative ideas. \n\n\n\n\n\nWe need more
-    heroes like you! \r"
+    will vote on the most creative and innovative ideas. \n\n\n\n\nWe need more heroes
+    like you! \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f65b994b4606efe458a65ccf028f7e10, type: 2}
   m_sharedMaterial: {fileID: -7100987932060588694, guid: f65b994b4606efe458a65ccf028f7e10, type: 2}
@@ -2841,7 +2841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myText: {fileID: 1614841016}
-  speed: 15.9
+  speed: 15.8
   textSelectionColor: {r: 1, g: 0.6896101, b: 0, a: 1}
 --- !u!1 &1628412342
 GameObject:
