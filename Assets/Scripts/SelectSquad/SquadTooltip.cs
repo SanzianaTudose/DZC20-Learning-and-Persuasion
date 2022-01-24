@@ -25,7 +25,7 @@ public class SquadTooltip : MonoBehaviour, UnityEngine.EventSystems.IPointerEnte
             "for marginalized and ageing populations, and for digital wellbeing.");
 
         squadTooltips.Add("Games And Play",
-            "This squad let's you leverage playful technologies, game design, and game data," +
+            "This squad lets you leverage playful technologies, game design, and game data " +
             "to facilitate societal change in a range of application areas.");
 
         squadTooltips.Add("Vitality", 
