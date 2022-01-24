@@ -920,7 +920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.5299683, y: 17.39}
+  m_AnchoredPosition: {x: -2.5300293, y: 17.390015}
   m_SizeDelta: {x: -126.61, y: -12.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701747554
@@ -2840,7 +2840,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myText: {fileID: 1614841016}
-  speed: 20
+  speed: 15.9
+  textSelectionColor: {r: 1, g: 0.6896101, b: 0, a: 1}
 --- !u!1 &1628412342
 GameObject:
   m_ObjectHideFlags: 0
