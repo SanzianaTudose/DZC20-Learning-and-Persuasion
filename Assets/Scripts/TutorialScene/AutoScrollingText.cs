@@ -22,6 +22,7 @@ public class AutoScrollingText : MonoBehaviour
     // Keep track of time passed since last update of text selection
     private float lastCutTimeDelta;
 
+    public Rigidbody2D rb;
 
     void Start()
     {
@@ -30,21 +31,21 @@ public class AutoScrollingText : MonoBehaviour
         remainingText = myText.text;
         selectedText = "";
         myColorHex = "#" + ColorUtility.ToHtmlStringRGB(textSelectionColor);
+
+        rb = GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector3(0, 1, 0);
     }
 
     void Update()
     {
         // If text object is at the end stop moving it
-        if (myText.transform.localPosition.y < 1460f)
+        if (myText.transform.localPosition.y > 1400f)
         {
-            // Set new position of text object
-            textPosition = new Vector3(textPosition.x, textPosition.y + 0.0001f * speed, textPosition.z);
-            myText.transform.position = textPosition;
-
+            Destroy(rb);
         }
 
         // If enough time has passed update selection text
-        if (lastCutTimeDelta > 0.0535 && remainingText.Length > 1)
+        if (lastCutTimeDelta > 0.05 && remainingText.Length > 1)
         {
             // Update selection text
             selectedText += remainingText.Substring(0, 1);
