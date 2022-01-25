@@ -23,8 +23,11 @@ public class SquadPicker : MonoBehaviourPunCallbacks
 
     [SerializeField] private CaseIntroController caseIntroController;
 
+    bool casePresented;
+
     private void Start()
     {
+        casePresented = false;
         GetParentsAndTextObjects();
 
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
@@ -145,8 +148,9 @@ public class SquadPicker : MonoBehaviourPunCallbacks
             SetSquadsVotingStatus();
         }
 
-        if (propertiesThatChanged.ContainsKey("pickedSquad"))
+        if (propertiesThatChanged.ContainsKey("pickedSquad") && !casePresented)
         {
+            casePresented = true;
             caseIntroController.startCaseIntro((string)PhotonNetwork.CurrentRoom.CustomProperties["pickedSquad"]);
         }
     }

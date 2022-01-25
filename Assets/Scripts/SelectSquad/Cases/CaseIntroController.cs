@@ -8,6 +8,7 @@ using Photon.Pun;
  * Handles picking a Case for the input squad and transitioning from Squad voting to Case introduction. 
  * input: picked Squad
  */
+
 public class CaseIntroController : MonoBehaviour {
     [Header("UI Fields")]
     [SerializeField] private GameObject squadVoteCanvas;
@@ -17,6 +18,11 @@ public class CaseIntroController : MonoBehaviour {
 
     [Header("Gameplay Variables")]
     [SerializeField] private List<Case> allCases;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource profAudioSource;
+    [SerializeField] public List<string> squadKeys;
+    [SerializeField] public List<AudioClip> squadAudio;
 
     public void startCaseIntro(string pickedSquad) {
         squadText.SetText(pickedSquad);
@@ -32,9 +38,20 @@ public class CaseIntroController : MonoBehaviour {
         // Only enable Continue button for MasterClient
         if (!PhotonNetwork.LocalPlayer.IsMasterClient)
             continueButton.SetActive(false);
-        
+
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
             SetSquadAndCaseRoomProperties(pickedSquad, pickedCase);
+
+        // Set Professor audio
+        int index = 0;
+        for (index = 0; index < squadKeys.Count; index++) {
+            if (squadKeys[index].Contains(pickedSquad))
+                break;
+        }
+
+        profAudioSource.loop = false;
+        if (!profAudioSource.isPlaying)
+        profAudioSource.PlayOneShot(squadAudio[index]);
     }
 
     public void OnClickContinue() {
