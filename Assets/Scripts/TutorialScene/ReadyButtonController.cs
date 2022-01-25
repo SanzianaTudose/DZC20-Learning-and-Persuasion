@@ -41,9 +41,11 @@ public class ReadyButtonController : MonoBehaviour {
 
             int readyCount = 0;
             foreach (var player in PhotonNetwork.PlayerList) {
-                var status = (bool) player.CustomProperties["ready"];
-                if (status)
-                    readyCount++;
+                if (player.CustomProperties["ready"] != null) {
+                    var status = (bool)player.CustomProperties["ready"];
+                    if (status)
+                        readyCount++;
+                }
             }
 
             // If every player is ready, transition to SelectSquad
