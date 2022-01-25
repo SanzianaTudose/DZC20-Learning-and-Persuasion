@@ -553,6 +553,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &183147615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7164732522279853342, guid: 57772377bff49de43a061cdfa7bb4b53, type: 3}
+  m_PrefabInstance: {fileID: 183147612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &333420773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,11 +1547,10 @@ MonoBehaviour:
   displayMessage: {fileID: 1862956926}
   displayPlayerPointsPrefab: {fileID: 6849881382706254022, guid: 94a93c8bd9314e9468ce0652f8ab762e, type: 3}
   playerPointsParent: {fileID: 333420773}
+  nextRoundButton: {fileID: 183147615}
   buttonText: {fileID: 183147614}
   leaderboardCanvas: {fileID: 1765418375}
   endGameCanvas: {fileID: 2129984400}
-  cheerMusic: {fileID: 779736515}
-  backgroundMusic: {fileID: 15697140}
 --- !u!1 &1397960124
 GameObject:
   m_ObjectHideFlags: 0
