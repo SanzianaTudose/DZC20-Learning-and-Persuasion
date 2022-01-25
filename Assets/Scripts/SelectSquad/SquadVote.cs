@@ -33,6 +33,13 @@ public class SquadVote : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
 
         // Add correct texture to the vote corresponding to the avatar of the person voting
         view = GetComponent<PhotonView>();
+
+        if (! view.Owner.CustomProperties.ContainsKey("playerAvatar")) 
+        {
+            ExitGames.Client.Photon.Hashtable _properties = new ExitGames.Client.Photon.Hashtable();
+            _properties["playerAvatar"] = 0;
+            PhotonNetwork.view.Owner.SetPlayerCustomProperties(_properties);
+        }
         myAvatarIndex = (int)view.Owner.CustomProperties["playerAvatar"];
         texture.sprite = votesTracker.GetAvatarImage(myAvatarIndex);
     }

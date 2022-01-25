@@ -45,7 +45,7 @@ public class AutoScrollingText : MonoBehaviour
         }
 
         // If enough time has passed update selection text
-        if (lastCutTimeDelta > 0.05 && remainingText.Length > 1)
+        if (lastCutTimeDelta > 0.0535 && remainingText.Length > 1)
         {
             // Update selection text
             selectedText += remainingText.Substring(0, 1);
