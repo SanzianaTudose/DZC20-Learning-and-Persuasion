@@ -87,11 +87,11 @@ public class PlayerLobbyItem : MonoBehaviourPunCallbacks
         {
             PlayerAvatar.sprite = avatars[(int)_player.CustomProperties["playerAvatar"]];
             playerProperties["playerAvatar"] = (int)_player.CustomProperties["playerAvatar"];
-        } else
+        }
+        else
         {
             PlayerAvatar.sprite = avatars[0];
             playerProperties["playerAvatar"] = 0;
-            PhotonNetwork.SetPlayerCustomProperties(playerProperties);
         }
     }
 }
