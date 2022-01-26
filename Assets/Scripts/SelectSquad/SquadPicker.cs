@@ -28,6 +28,13 @@ public class SquadPicker : MonoBehaviourPunCallbacks
     private void Start()
     {
         casePresented = false;
+        if (!PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("playerAvatar"))
+        {
+            ExitGames.Client.Photon.Hashtable _properties = new ExitGames.Client.Photon.Hashtable();
+            _properties["playerAvatar"] = 0;
+            PhotonNetwork.LocalPlayer.SetCustomProperties(_properties);
+        }
+
         GetParentsAndTextObjects();
 
         if (PhotonNetwork.LocalPlayer.IsMasterClient)

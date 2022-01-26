@@ -54,14 +54,17 @@ public class CaseIntroController : MonoBehaviour {
         profAudioSource.PlayOneShot(squadAudio[index]);
     }
 
-    public void OnClickContinue() {
+    public void OnClickContinue()
+    {
         PhotonNetwork.LoadLevel("MainScene");
     }
 
-    private string PickCaseforSquad(string pickedSquad) {
+    private string PickCaseforSquad(string pickedSquad)
+    {
         List<Case> possibleCases = new List<Case>();
 
-        foreach (Case it in allCases) {
+        foreach (Case it in allCases)
+        {
             if (it.getSquadString() == pickedSquad)
                 possibleCases.Add(it);
         }
@@ -69,7 +72,8 @@ public class CaseIntroController : MonoBehaviour {
         Case pickedCase = possibleCases[Random.Range(0, possibleCases.Count - 1)];
         return pickedCase.caseText;
     }
-    private void SetSquadAndCaseRoomProperties(string pickedSquad, string pickedCase) {
+    private void SetSquadAndCaseRoomProperties(string pickedSquad, string pickedCase)
+    {
         ExitGames.Client.Photon.Hashtable roomProperties = new ExitGames.Client.Photon.Hashtable();
         roomProperties.Add("pickedSquad", pickedSquad);
         roomProperties.Add("pickedCase", pickedCase);

@@ -18,13 +18,12 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
     public DisplayPlayerPoints displayPlayerPointsPrefab;
     private Dictionary<int, DisplayPlayerPoints> allPlayerPoints;
     public GameObject playerPointsParent;
+    public GameObject nextRoundButton;
 
     [SerializeField] private TMP_Text buttonText;
     [SerializeField] private GameObject leaderboardCanvas;
     [SerializeField] private GameObject endGameCanvas;
 
-    [SerializeField]  private AudioSource cheerMusic;
-    [SerializeField]  private AudioSource backgroundMusic;
 
     private void Start()
     {
@@ -54,6 +53,17 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
         }
     }
 
+    private void Update()
+    {
+        if (PhotonNetwork.LocalPlayer.IsMasterClient)
+        {
+            nextRoundButton.SetActive(true);
+        } else
+        {
+            nextRoundButton.SetActive(false);
+        }
+    }
+
     private void DisplayPlayerPointsObjects()
     {
         allPlayerPoints = new Dictionary<int, DisplayPlayerPoints>();
@@ -76,18 +86,12 @@ public class LeaderboardDisplay : MonoBehaviourPunCallbacks
     {
         if (currentRound == 3)
         {
-            // Transition canvases
-            Destroy(FindObjectsOfType<DontDestroyAudio>()[0].gameObject);
-            endGameCanvas.SetActive(true);
-            leaderboardCanvas.SetActive(false);
-
-            cheerMusic.PlayOneShot(cheerMusic.clip);
-            backgroundMusic.PlayDelayed(8.4f);
-
-            return;
+            PhotonNetwork.LoadLevel("EndScene");
+        } else
+        {
+            PhotonNetwork.LoadLevel("SelectSquad");
         }
 
-        PhotonNetwork.LoadLevel("SelectSquad");
     }
 
     public int GetCurrentRound()
