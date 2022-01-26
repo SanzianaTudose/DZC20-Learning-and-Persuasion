@@ -13,7 +13,7 @@ public class ContinueButtonController : MonoBehaviour {
 
     void Start() {
         continueButton = GetComponent<Button>();
-        continueButton.interactable = false;
+        //continueButton.interactable = false;
 
         idCanvas.SetActive(true);
         gameCanvas.SetActive(false);
