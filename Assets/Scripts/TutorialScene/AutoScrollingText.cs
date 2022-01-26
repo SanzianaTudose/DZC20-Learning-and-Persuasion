@@ -8,8 +8,6 @@ public class AutoScrollingText : MonoBehaviour
 {
     // Text object, speed and position
     public TMP_Text myText;
-    public float speed;
-    private Vector3 textPosition;
 
     // Text selection color and variable to store it as HEX value
     public Color textSelectionColor;
@@ -27,7 +25,6 @@ public class AutoScrollingText : MonoBehaviour
     void Start()
     {
         // Set variables
-        textPosition = myText.transform.position;
         remainingText = myText.text;
         selectedText = "";
         myColorHex = "#" + ColorUtility.ToHtmlStringRGB(textSelectionColor);
@@ -44,14 +41,15 @@ public class AutoScrollingText : MonoBehaviour
             Destroy(rb);
         }
 
+        float timeNeededToPass = 0.055f;
         // If enough time has passed update selection text
-        if (lastCutTimeDelta > 0.0535 && remainingText.Length > 1)
+        if (lastCutTimeDelta > timeNeededToPass && remainingText.Length > 1)
         {
             // Update selection text
             selectedText += remainingText.Substring(0, 1);
             remainingText = remainingText.Remove(0, 1);
             myText.text = "<color=" + myColorHex + ">" + selectedText + "</color>" + remainingText;
-            lastCutTimeDelta = 0;
+            lastCutTimeDelta -= timeNeededToPass;
         }
             
         // Change passed time since last Update
