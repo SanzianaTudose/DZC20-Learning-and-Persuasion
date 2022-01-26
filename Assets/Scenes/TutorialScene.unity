@@ -2682,6 +2682,7 @@ GameObject:
   - component: {fileID: 1614841018}
   - component: {fileID: 1614841016}
   - component: {fileID: 1614841015}
+  - component: {fileID: 1614841019}
   m_Layer: 5
   m_Name: TutorialText
   m_TagString: Untagged
@@ -2750,7 +2751,7 @@ MonoBehaviour:
     focused on different directions of design. Within these squads, you will help
     people by creating an innovative solution to the problem statement. With the
     use of 5 expertise areas, you will create amazing ways of helping people and
-    will vote on the most creative and innovative ideas. \n\n\n\n\nWe need more heroes
+    will vote on the most creative and innovative ideas. \n\n\n\nWe need more heroes
     like you! \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f65b994b4606efe458a65ccf028f7e10, type: 2}
@@ -2843,6 +2844,28 @@ MonoBehaviour:
   myText: {fileID: 1614841016}
   speed: 15.9
   textSelectionColor: {r: 1, g: 0.6896101, b: 0, a: 1}
+  rb: {fileID: 0}
+--- !u!50 &1614841019
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614841013}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 30
+  m_AngularDrag: 0.9
+  m_GravityScale: -1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!1 &1628412342
 GameObject:
   m_ObjectHideFlags: 0
