@@ -8,8 +8,8 @@ using Photon.Pun;
  * Handles picking a Case for the input squad and transitioning from Squad voting to Case introduction. 
  * input: picked Squad
  */
-public class CaseIntroController : MonoBehaviour
-{
+
+public class CaseIntroController : MonoBehaviour {
     [Header("UI Fields")]
     [SerializeField] private GameObject squadVoteCanvas;
     [SerializeField] private TMP_Text squadText;
@@ -19,25 +19,12 @@ public class CaseIntroController : MonoBehaviour
     [Header("Gameplay Variables")]
     [SerializeField] private List<Case> allCases;
 
-    private Dictionary<string, AudioClip> squadTooltips;
+    [Header("Audio")]
+    [SerializeField] private AudioSource profAudioSource;
+    [SerializeField] public List<string> squadKeys;
+    [SerializeField] public List<AudioClip> squadAudio;
 
-    public AudioClip inclusiveDesign;
-    public AudioClip gamesAndPlay;
-    public AudioClip vitality;
-    public AudioClip transformingPractices;
-    public AudioClip crafting;
-    public AudioClip newFutures;
-    public AudioClip health;
-    public AudioClip sensoryMatters;
-    public AudioClip artifice;
-
-    public AudioSource audioSource;
-    private bool playAudioOnce = false;
-
-    public void startCaseIntro(string pickedSquad)
-    {
-        setUpDictionary();
-
+    public void startCaseIntro(string pickedSquad) {
         squadText.SetText(pickedSquad);
 
         // Transition UI
@@ -55,40 +42,16 @@ public class CaseIntroController : MonoBehaviour
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
             SetSquadAndCaseRoomProperties(pickedSquad, pickedCase);
 
-        startVoiceOver(pickedSquad);
-    }
-
-    private void startVoiceOver(string squadName)
-    {
-        if (!playAudioOnce)
-        {
-            if (squadTooltips.ContainsKey(squadName))
-            {
-                audioSource.PlayOneShot(squadTooltips[squadName]);
-                playAudioOnce = true;
-                continueButton.SetActive(false);
-            }
-        } else
-        {
-            if (!audioSource.isPlaying)
-            {
-                continueButton.SetActive(true);
-            }
+        // Set Professor audio
+        int index = 0;
+        for (index = 0; index < squadKeys.Count; index++) {
+            if (squadKeys[index].Contains(pickedSquad))
+                break;
         }
-    }
 
-    private void setUpDictionary()
-    {
-        squadTooltips = new Dictionary<string, AudioClip>();
-        squadTooltips.Add("Inclusive Design and Thoughtful Technology", inclusiveDesign);
-        squadTooltips.Add("Games And Play", gamesAndPlay);
-        squadTooltips.Add("Vitality", vitality);
-        squadTooltips.Add("Transforming Practices", transformingPractices);
-        squadTooltips.Add("Crafting Wearable Senses", crafting);
-        squadTooltips.Add("New Futures (connectivity in the home)", newFutures);
-        squadTooltips.Add("Health", health);
-        squadTooltips.Add("Sensory Matters (sustainable food systems)", sensoryMatters);
-        squadTooltips.Add("Artifice - Artificial Intelligence", artifice);
+        profAudioSource.loop = false;
+        if (!profAudioSource.isPlaying)
+        profAudioSource.PlayOneShot(squadAudio[index]);
     }
 
     public void OnClickContinue()

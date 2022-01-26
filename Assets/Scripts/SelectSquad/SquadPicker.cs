@@ -23,8 +23,11 @@ public class SquadPicker : MonoBehaviourPunCallbacks
 
     [SerializeField] private CaseIntroController caseIntroController;
 
+    bool casePresented;
+
     private void Start()
     {
+        casePresented = false;
         if (!PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("playerAvatar"))
         {
             ExitGames.Client.Photon.Hashtable _properties = new ExitGames.Client.Photon.Hashtable();
@@ -152,8 +155,9 @@ public class SquadPicker : MonoBehaviourPunCallbacks
             SetSquadsVotingStatus();
         }
 
-        if (propertiesThatChanged.ContainsKey("pickedSquad"))
+        if (propertiesThatChanged.ContainsKey("pickedSquad") && !casePresented)
         {
+            casePresented = true;
             caseIntroController.startCaseIntro((string)PhotonNetwork.CurrentRoom.CustomProperties["pickedSquad"]);
         }
     }

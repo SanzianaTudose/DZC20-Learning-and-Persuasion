@@ -3789,6 +3789,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 809577320}
     m_Modifications:
+    - target: {fileID: 6196603363283030761, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6196603363378147834, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
       propertyPath: m_Name
       value: SquadChoiceExample
@@ -3885,11 +3889,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6196603364394637925, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6196603364394637927, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
       propertyPath: m_text
       value: Games And Play
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8083495973520712674, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169256001960368079, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6196603363378147783, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
+    - {fileID: 6196603363378147782, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bc5fb5c32e928fc42bad95bee0ab08b8, type: 3}
 --- !u!224 &2029437384 stripped
 RectTransform:
