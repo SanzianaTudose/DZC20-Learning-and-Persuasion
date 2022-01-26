@@ -1,0 +1,1020 @@
+fileFormatVersion: 2
+guid: fe27e8594df2be24e9fb37245af452ec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7069217153204189035
+    second: grandma_happy4_0
+  - first:
+      213: -8570216634037733983
+    second: grandma_happy4_1
+  - first:
+      213: -3886332208274832481
+    second: grandma_happy4_2
+  - first:
+      213: -8241871195122762628
+    second: grandma_happy4_3
+  - first:
+      213: 5435814194507590920
+    second: grandma_happy4_4
+  - first:
+      213: -1757404200088914705
+    second: grandma_happy4_5
+  - first:
+      213: -4537918949960512852
+    second: grandma_happy4_6
+  - first:
+      213: -7792281433761299584
+    second: grandma_happy4_7
+  - first:
+      213: -4549035498211582982
+    second: grandma_happy4_8
+  - first:
+      213: 4957983109326053344
+    second: grandma_happy4_9
+  - first:
+      213: -3632710512529440883
+    second: grandma_happy4_10
+  - first:
+      213: 2325004918777932881
+    second: grandma_happy4_11
+  - first:
+      213: 3578662447697773468
+    second: grandma_happy4_12
+  - first:
+      213: -4411587086847941141
+    second: grandma_happy4_13
+  - first:
+      213: -7158228600663725087
+    second: grandma_happy4_14
+  - first:
+      213: 3380544782470728205
+    second: grandma_happy4_15
+  - first:
+      213: -6858192473295031014
+    second: grandma_happy4_16
+  - first:
+      213: -4875544847017243503
+    second: grandma_happy4_17
+  - first:
+      213: 7550518877174328283
+    second: grandma_happy4_18
+  - first:
+      213: -6862495706501586115
+    second: grandma_happy4_19
+  - first:
+      213: 8614835944837939985
+    second: grandma_happy4_20
+  - first:
+      213: 5755329241598441962
+    second: grandma_happy4_21
+  - first:
+      213: 9084881486322209733
+    second: grandma_happy4_22
+  - first:
+      213: -4703824029220334013
+    second: grandma_happy4_23
+  - first:
+      213: 2804542579369433290
+    second: grandma_happy4_24
+  - first:
+      213: -6722972967659023187
+    second: grandma_happy4_25
+  - first:
+      213: -4126615314190416872
+    second: grandma_happy4_26
+  - first:
+      213: -5265804334836993945
+    second: grandma_happy4_27
+  - first:
+      213: 3683500712427516094
+    second: grandma_happy4_28
+  - first:
+      213: 325535854135452400
+    second: grandma_happy4_29
+  - first:
+      213: 1171772086717372712
+    second: grandma_happy4_30
+  - first:
+      213: 6238157042819440218
+    second: grandma_happy4_31
+  - first:
+      213: 7949295676530428227
+    second: grandma_happy4_32
+  - first:
+      213: -927863801074780132
+    second: grandma_happy4_33
+  - first:
+      213: 3008463667716633832
+    second: grandma_happy4_34
+  - first:
+      213: 8658082001094326774
+    second: grandma_happy4_35
+  - first:
+      213: -8890468869136515257
+    second: grandma_happy4_36
+  - first:
+      213: 7523161745380072174
+    second: grandma_happy4_37
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grandma_happy4_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 805
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6775d8eb87ea1260800000000000000
+      internalID: 7069217153204189035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 549
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a57908d069701980800000000000000
+      internalID: -8570216634037733983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 549
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f938e9e7279f01ac0800000000000000
+      internalID: -3886332208274832481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 549
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7cfe2ab0ddfe9d80800000000000000
+      internalID: -8241871195122762628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 485
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80da6a0b534ef6b40800000000000000
+      internalID: 5435814194507590920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 485
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe4bbeee0327c97e0800000000000000
+      internalID: -1757404200088914705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 485
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caa071802c21601c0800000000000000
+      internalID: -4537918949960512852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 485
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08349ce32514cd390800000000000000
+      internalID: -7792281433761299584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 485
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afbd472f0549ed0c0800000000000000
+      internalID: -4549035498211582982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 421
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef14c19e5b4ec440800000000000000
+      internalID: 4957983109326053344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 421
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8ffad82905069dc0800000000000000
+      internalID: -3632710512529440883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 421
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c6bccb7a3144020800000000000000
+      internalID: 2325004918777932881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 421
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c934e0e1986f9a130800000000000000
+      internalID: 3578662447697773468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 421
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be56ab80be4e6c2c0800000000000000
+      internalID: -4411587086847941141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 357
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eba56c730dd8ac90800000000000000
+      internalID: -7158228600663725087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 357
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0ac77a919b1aee20800000000000000
+      internalID: 3380544782470728205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 357
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15fdf3284ec2d0a0800000000000000
+      internalID: -6858192473295031014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 357
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19c0d0b1bc5965cb0800000000000000
+      internalID: -4875544847017243503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 357
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb6bd71ae4d8c860800000000000000
+      internalID: 7550518877174328283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 293
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d336455938483c0a0800000000000000
+      internalID: -6862495706501586115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 293
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113055206ab0e8770800000000000000
+      internalID: 8614835944837939985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 293
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9b4e2c3790fdf40800000000000000
+      internalID: 5755329241598441962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 293
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c312caf39bf31e70800000000000000
+      internalID: 9084881486322209733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_23
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 293
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3461064a7f8a8beb0800000000000000
+      internalID: -4703824029220334013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 229
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac8d5c8ed9cbbe620800000000000000
+      internalID: 2804542579369433290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 229
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4512ca4b333b2a0800000000000000
+      internalID: -6722972967659023187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_26
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 229
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8144ef84c315bb6c0800000000000000
+      internalID: -4126615314190416872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 229
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760345d5bda1ce6b0800000000000000
+      internalID: -5265804334836993945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 165
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0f326c16c6e1330800000000000000
+      internalID: 3683500712427516094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_29
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 165
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f2a5637229848400800000000000000
+      internalID: 325535854135452400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_30
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 165
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 829d18a2188f24010800000000000000
+      internalID: 1171772086717372712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_31
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 165
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5e9a5e77c2629650800000000000000
+      internalID: 6238157042819440218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 101
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3490526fc42915e60800000000000000
+      internalID: 7949295676530428227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_33
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 101
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c187ef8f9c09f13f0800000000000000
+      internalID: -927863801074780132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_34
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 101
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e43be924c530c920800000000000000
+      internalID: 3008463667716633832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_35
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 37
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f93e6f15bfa72870800000000000000
+      internalID: 8658082001094326774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_36
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 37
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ff270daa5be9480800000000000000
+      internalID: -8890468869136515257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandma_happy4_37
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 37
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeadf2d7fb3a76860800000000000000
+      internalID: 7523161745380072174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
