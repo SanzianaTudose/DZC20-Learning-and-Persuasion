@@ -45,6 +45,11 @@ public class TimerController : MonoBehaviour {
         }
     }
 
+    public float GetRemainingTime()
+    {
+        return timeRemaining;
+    }
+
     private void DisplayTime() {
         float minutes = Mathf.FloorToInt((timeRemaining + 1) / 60);
         float seconds = Mathf.FloorToInt((timeRemaining + 1) % 60);
